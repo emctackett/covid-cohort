@@ -9,4 +9,4 @@ This is a project built for Oregon State University's CS361 course- Software Eng
 * **Laura Jiang** - [laurajjiang](https://github.com/laurajjiang)
 * **Suzana Shaver** - [shaversu](https://github.com/shaversu)
 * **Caleb Schmidt** - [calebschmidt](https://github.com/calebschmidt)
-* **Mikayla Friend** - [mikaylafr](https://github.com/PurpleBooth)
+* **Mikayla Friend** - [mikaylafr](https://github.com/MikaylaFr)
