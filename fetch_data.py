@@ -3,8 +3,8 @@ import requests
 
 def fetch_by_state_data():
     url = 'https://www.cdc.gov/coronavirus/2019-ncov/map-cases-us.json'
-    resp = requests.get(url)
 
+    resp = requests.get(url)
     if not resp.ok:
         resp.raise_for_status()
 
@@ -24,4 +24,7 @@ def fetch_by_country_data():
     }
 
     resp = requests.get(url, params=params)
+    if not resp.ok:
+        resp.raise_for_status()
+
     return resp.json()
