@@ -12,25 +12,21 @@ def index():
 
 @app.route('/info')
 def info():
-    # Not passing any variables to the template yet
     return render_template('info.html')
 
 
 @app.route('/reminders')
 def reminders():
-    # Not passing any variables to the template yet
     return render_template('reminders.html')
 
 
 @app.route('/social-distancing')
 def social_distancing():
-    # Not passing any variables to the template yet
     return render_template('social_distancing.html')
 
 
 @app.route('/should-i-go-out')
 def should_i_go_out():
-    # Not passing any variables to the template yet
     return render_template('should_i_go_out.html')
 
 

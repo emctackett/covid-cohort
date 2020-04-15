@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Should I?{% endblock %}
+
+{% block content %}
+
+<div>
+  <h1>Should I Go Out? Placeholder</h1>
+</div>
+
+<!-- Navbar inclusion to come -->
+<div>
+  <ul>
+    <li>
+      <a href="{{ url_for('index') }}">Home</a>
+    </li>
+    <li>
+      <a href="{{ url_for('info') }}">Info</a>
+    </li>
+    <li>
+      <a href="{{ url_for('reminders') }}">Reminders</a>
+    </li>
+    <li>
+      <a href="{{ url_for('social_distancing') }}">Social Distancing</a>
+    </li>
+    <li>
+      <a href="{{ url_for('should_i_go_out') }}">Should I Go Out?</a>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <p>
+    Cras tincidunt nunc odio, eget vulputate mi tincidunt sit amet. Pellentesque
+    at purus et nunc varius sagittis. Fusce rhoncus pretium nisl, at tristique
+    felis consectetur eu. Suspendisse a leo velit. Donec orci diam, posuere at
+    consectetur in, bibendum eget massa. Nunc laoreet eros diam, at porttitor
+    ligula cursus vel. Fusce quis mi accumsan, pellentesque tortor et,
+    ullamcorper mauris. Integer fermentum mollis diam ac elementum. Nunc in
+    egestas enim, in bibendum urna. Vivamus viverra auctor turpis, ut auctor
+    odio tempus nec. Maecenas quis eros eget odio varius semper interdum a nibh.
+    Mauris sed mauris finibus, luctus erat ut, pulvinar risus. Suspendisse
+    porttitor semper efficitur.
+  </p>
+</div>
+
+{% endblock %}
+
+<!-- Footer inclusion to come -->
