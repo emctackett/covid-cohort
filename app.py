@@ -6,28 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Not passing any variables to the template yet
+    # Just serving up a mostly empty page with room for React stuffs
     return render_template('index.html')
-
-
-@app.route('/info')
-def info():
-    return render_template('info.html')
-
-
-@app.route('/reminders')
-def reminders():
-    return render_template('reminders.html')
-
-
-@app.route('/social-distancing')
-def social_distancing():
-    return render_template('social_distancing.html')
-
-
-@app.route('/should-i-go-out')
-def should_i_go_out():
-    return render_template('should_i_go_out.html')
 
 
 if __name__ == '__main__':

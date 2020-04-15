@@ -1,41 +1,25 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-{% block title %}Home{% endblock %}
+    <!-- CSS -->
 
-{% block content %}
+    <!-- JS -->
+    <title>
+        COVIDCoach
+    </title>
+  </head>
 
-<!-- This is where the main body of the main page will go -- feel free to delete all this -->
-<div>
-  <h1>COVIDCoach Placeholder</h1>
-</div>
+  <body>
+    <div id="content">
+      <h1>COVIDCoach</h1>
+    </div>
 
-<!-- Navbar inclusion to come -->
-<div>
-  <ul>
-    <li>
-      <a href="{{ url_for('index') }}">Home</a>
-    </li>
-    <li>
-      <a href="{{ url_for('info') }}">Info</a>
-    </li>
-    <li>
-      <a href="{{ url_for('reminders') }}">Reminders</a>
-    </li>
-    <li>
-      <a href="{{ url_for('social_distancing') }}">Social Distancing</a>
-    </li>
-    <li>
-      <a href="{{ url_for('should_i_go_out') }}">Should I Go Out?</a>
-    </li>
-  </ul>
-</div>
-
-<div>
-  <p>
-    Don't worry, it'll be much prettier soon :)
-  </p>
-</div>
-
-{% endblock %}
-
-<!-- Footer inclusion to come -->
+    <div id="footer">
+      &copy; Copyright 2020 COVID-Cohort
+    </div>
+  </body>
+</html>

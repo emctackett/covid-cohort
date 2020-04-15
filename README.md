@@ -5,6 +5,7 @@ This is a project built for Oregon State University's CS361 course - Software En
 * [Python 3](https://docs.python.org/3/)
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 * [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+* [React](https://reactjs.org/)
 
 
 ## Authors
