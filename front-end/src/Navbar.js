@@ -21,9 +21,14 @@ const items = [
 
 const CollapsableNav = () => (
   <Grommet theme={theme}>
-    <Header background="light-1" pad="medium">
+    <Header
+      background="#FFFFFF"
+      pad="small"
+      border={{ side: "bottom", size: "small", color: "#000000" }}
+    >
       <Box direction="row" align="center" gap="small">
         <Anchor
+          margin={{ left: "medium" }}
           color="dark-2"
           size="xxlarge"
           href={"/"}
@@ -46,6 +51,7 @@ const CollapsableNav = () => (
             <Nav direction="row">
               {items.map((item) => (
                 <Anchor
+                  margin={{ left: "small", right: "medium" }}
                   color="dark-2"
                   size="large"
                   href={item.href}
