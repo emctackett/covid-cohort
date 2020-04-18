@@ -1,13 +1,18 @@
+import React, { useState } from "react";
 import Axios from "axios";
 
-const baseUrl = "http://covid-19-data-api.herokuapp.com";
+const baseUrl = "https://covidtracking.com/api";
 
-async function countryHttpRequest() {
-  const requestUrl = baseUrl + "/country/germany";
+async function countryHttpRequest(props) {
+  const [isLoaded, setLoaded] = useState(false);
+
+  function handleLoadChange() {
+    setLoaded(true);
+  }
+
+  const requestUrl = baseUrl + this.props.search;
   try {
     const results = await Axios.get(requestUrl);
-    const cases = results.cum_conf;
-    const deaths = results.cum_death;
   } catch {
     console.log(err);
   }
