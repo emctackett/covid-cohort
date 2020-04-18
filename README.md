@@ -4,7 +4,7 @@ This is a project built for Oregon State University's CS361 course - Software En
 There are three primary goals for COVIDCoach - 
 (1) help people avoid catching the virus,
 (2) help people learn about the virus, and
-(3) help people connected and in touch with others. 
+(3) help people stay connected and in touch with others. 
 
 ## Built With
 * [Python 3](https://docs.python.org/3/)

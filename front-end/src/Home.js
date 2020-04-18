@@ -1,74 +1,96 @@
 import React from "react";
-
-import { Heading, Grommet, Grid, Main, Box, Paragraph } from "grommet";
+import {
+  Anchor,
+  Heading,
+  Grommet,
+  Main,
+  Box,
+  Paragraph,
+  Button,
+  WorldMap,
+} from "grommet";
 import { grommet } from "grommet/themes";
 
 const GridLayout = () => {
   return (
     <div>
-      <Grid columns={["1/4", "3/4"]} areas={[["info", "info2"]]} gap="small">
-        <Box background="light-5" gridArea="info">
-          <Heading size="small" margin="small">
-            Stay home. Save lives.
-          </Heading>
-          <Paragraph margin="small">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-            mauris enim, iaculis quis turpis quis, tempor pharetra ex.
-            Suspendisse enim nulla, auctor a enim ut, condimentum rutrum nisl.
-            Quisque id malesuada lectus. Donec pretium sit amet turpis sed
-            porttitor. In tincidunt magna sed volutpat ornare. Proin et erat sit
-            amet turpis accumsan malesuada. In in nisi eu leo placerat posuere
-            quis in mauris. Phasellus euismod pretium ipsum, sed auctor nunc
-            ornare quis. Duis pretium risus ut tristique efficitur. Aenean
-            aliquam molestie lobortis. Cras justo nunc, ornare ut cursus nec,
-            imperdiet vitae sapien. Suspendisse ut dictum ante. Sed vitae cursus
-            nulla. Aliquam lobortis pretium mauris, non vehicula purus malesuada
-            quis. Mauris posuere vestibulum felis, non pulvinar dui congue sit
-            amet. Aliquam erat volutpat. Sed id magna in magna fringilla
-            pharetra. Phasellus ultricies felis at ligula laoreet luctus.
-            Integer tristique sit amet ex et feugiat. Aliquam sapien felis,
-            vehicula ac eros ut, dignissim feugiat sem. Vivamus gravida aliquet
-            imperdiet. Cras ut auctor felis. Cras interdum sodales neque id
-            pulvinar. Pellentesque eu nisl in augue finibus eleifend ut id urna.
-            Aliquam ac leo nisl. Nulla at facilisis sapien, a semper diam. Donec
-            scelerisque justo id mattis elementum. Etiam volutpat at tellus in
-            egestas. Curabitur nec nibh vitae sapien posuere tincidunt a quis
-            enim. Maecenas tempus velit turpis, vitae gravida lacus suscipit
-            rutrum. Phasellus at tristique velit.
-          </Paragraph>
-        </Box>
-
-        <Box background="light-2" gridArea="info2">
-          <Heading size="small" margin="small">
-            Lorem ipsum
-          </Heading>
-          <Paragraph margin="small">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-            mauris enim, iaculis quis turpis quis, tempor pharetra ex.
-            Suspendisse enim nulla, auctor a enim ut, condimentum rutrum nisl.
-            Quisque id malesuada lectus. Donec pretium sit amet turpis sed
-            porttitor. In tincidunt magna sed volutpat ornare. Proin et erat sit
-            amet turpis accumsan malesuada. In in nisi eu leo placerat posuere
-            quis in mauris. Phasellus euismod pretium ipsum, sed auctor nunc
-            ornare quis. Duis pretium risus ut tristique efficitur. Aenean
-            aliquam molestie lobortis. Cras justo nunc, ornare ut cursus nec,
-            imperdiet vitae sapien. Suspendisse ut dictum ante. Sed vitae cursus
-            nulla. Aliquam lobortis pretium mauris, non vehicula purus malesuada
-            quis. Mauris posuere vestibulum felis, non pulvinar dui congue sit
-            amet. Aliquam erat volutpat. Sed id magna in magna fringilla
-            pharetra. Phasellus ultricies felis at ligula laoreet luctus.
-            Integer tristique sit amet ex et feugiat. Aliquam sapien felis,
-            vehicula ac eros ut, dignissim feugiat sem. Vivamus gravida aliquet
-            imperdiet. Cras ut auctor felis. Cras interdum sodales neque id
-            pulvinar. Pellentesque eu nisl in augue finibus eleifend ut id urna.
-            Aliquam ac leo nisl. Nulla at facilisis sapien, a semper diam. Donec
-            scelerisque justo id mattis elementum. Etiam volutpat at tellus in
-            egestas. Curabitur nec nibh vitae sapien posuere tincidunt a quis
-            enim. Maecenas tempus velit turpis, vitae gravida lacus suscipit
-            rutrum. Phasellus at tristique velit.
-          </Paragraph>
-        </Box>
-      </Grid>
+      <Box background="light-2" gridArea="info" align="center">
+        {/* <img src={banner} width="100%" height="auto" /> */}
+        <div>
+          <WorldMap color="#8e1600" height="auto" />
+        </div>
+        <Heading>Stay home, stay safe.</Heading>
+        <Heading level="3" margin="none">
+          What is COVID-19?
+        </Heading>
+        <br />
+        <Paragraph
+          fill="true"
+          margin={{ left: "xlarge", right: "xlarge" }}
+          size="large"
+          textAlign="center"
+        >
+          <Anchor
+            href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+            color="#000000"
+          >
+            According to the World Health Organization,{" "}
+          </Anchor>
+          COVID-19 is the infectious disease caused by the most recently
+          discovered coronavirus. This new virus and disease were unknown before
+          the outbreak began in Wuhan, China, in December 2019.
+        </Paragraph>
+        <Heading level="3" margin={{ bottom: "none" }}>
+          Who is at risk?
+        </Heading>
+        <br />
+        <Paragraph
+          fill="true"
+          margin={{ left: "xlarge", right: "xlarge" }}
+          size="large"
+          textAlign="center"
+        >
+          While we are still learning about how COVID-2019 affects people, older
+          persons and persons with pre-existing medical conditions (such as high
+          blood pressure, heart disease, lung disease, cancer or diabetes)
+          appear to develop serious illness more often than others{" "}
+          <Anchor
+            href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+            color="#000000"
+          >
+            (World Health Organization 2020).
+          </Anchor>
+        </Paragraph>
+        <Heading level="3" margin={{ bottom: "none" }}>
+          How can COVIDCoach help?
+        </Heading>
+        <br />
+        <Paragraph
+          fill="true"
+          margin={{ left: "xlarge", right: "xlarge" }}
+          size="large"
+          textAlign="center"
+        >
+          COVIDCoach aims to be a source of information where users can learn
+          more about COVID-19, how they can stay safe and healthy, and be
+          reminded of keeping in contact with friends and family. Providing
+          unbiased, factual information is important in this time of crisis.
+        </Paragraph>
+        <div>
+          <Button
+            label="Learn more"
+            href="/learn"
+            color="#000000"
+            margin="small"
+          />
+          <Button
+            label="Sign up"
+            href="/learn"
+            color="#000000"
+            margin="small"
+          />
+        </div>
+      </Box>
     </div>
   );
 };
