@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
+import Learn from "./Learn";
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
   <Router>
     <div>
       <Route exact path="/" component={App} />
+      <Route exact path="/learn" component={Learn} />
       {/* <Route path="/about" component={} />
       <Route path="/learn" component={} />
       <Route path="/safety" component={} />
