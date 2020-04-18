@@ -1,10 +1,8 @@
 import React from "react";
-import banner from "./stayhome.jpg";
 import {
   Anchor,
   Heading,
   Grommet,
-  Grid,
   Main,
   Box,
   Paragraph,
@@ -78,12 +76,20 @@ const GridLayout = () => {
           reminded of keeping in contact with friends and family. Providing
           unbiased, factual information is important in this time of crisis.
         </Paragraph>
-        <Button
-          label="Learn more"
-          href="/learn"
-          color="#000000"
-          margin="small"
-        />
+        <div>
+          <Button
+            label="Learn more"
+            href="/learn"
+            color="#000000"
+            margin="small"
+          />
+          <Button
+            label="Sign up"
+            href="/learn"
+            color="#000000"
+            margin="small"
+          />
+        </div>
       </Box>
     </div>
   );
