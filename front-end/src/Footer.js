@@ -3,9 +3,15 @@ import { Footer, grommet, Grommet, Text } from "grommet";
 
 const SimpleFooter = () => (
   <Grommet theme={grommet}>
-    <Footer background="light-1" justify="center" pad="small">
+    <Footer
+      background="#FFFFFF"
+      justify="center"
+      pad="small"
+      border={{ top: "large" }}
+    >
       <Text textAlign="center" size="small">
-        Learn more about COVID-19. Support the cause.
+        Support our essential workers. Stay home to keep yourself and others
+        safe. Flatten the curve.
       </Text>
     </Footer>
   </Grommet>
