@@ -4,7 +4,6 @@ import {
   Box,
   Grommet,
   Header,
-  Heading,
   Nav,
   Menu,
   ResponsiveContext,
