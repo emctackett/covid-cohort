@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
 
@@ -13,7 +13,21 @@ import {
 } from "grommet";
 import { grommet } from "grommet/themes";
 
+const usData = () => {
+  fetch("http://covidtracking.com/api/us")
+  .then(response => response.json())
+  .then(data => data[0]['positive']);
+}
+
 const GridLayout = () => {
+  const [usPositives, setUsPositives] = useState(0);
+
+  useEffect(() => {
+    fetch("http://covidtracking.com/api/us")
+    .then(response => response.json())
+    .then(data => setUsPositives(data[0]['positive']));
+  });
+
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
@@ -39,7 +53,7 @@ const GridLayout = () => {
           color="#8F1701"
           margin={{bottom: "small"}}
         >
-          XXX,XXX,XXX
+          {usPositives}
         </Heading>
         <br />
         <Heading level="3" margin="none">
