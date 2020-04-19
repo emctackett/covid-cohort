@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
+import USAMap from "react-usa-map";
 
 import {
   Anchor,
@@ -18,6 +19,32 @@ const usData = () => {
   .then(response => response.json())
   .then(data => data[0]['positive']);
 }
+
+class App extends Component {
+	mapHandler = (event) => {
+		alert(event.target.dataset.name);
+	};
+
+	statesCustomConfig = () => {
+		return {
+			"NJ" : {
+				fill: "navy",
+				clickHandler: (event) => console.log('Custom handler for NJ')
+			},
+			"NY" : {
+				fill: "#CC0000"
+			}
+		};
+	};
+
+	render() {
+		return (
+			<div className="App">
+				<USAMap onClick={this.mapHandler} />
+			</div>
+			);
+		}
+	}
 
 const GridLayout = () => {
   const [usPositives, setUsPositives] = useState(0);
@@ -59,6 +86,9 @@ const GridLayout = () => {
         <Heading level="3" margin="none">
           Confirmed cases of COVID-19 in the United States
         </Heading>
+	<br />
+	<br />
+	<App />
         <br />
         <Paragraph
           fill={true}
@@ -86,6 +116,7 @@ const GridLayout = () => {
   );
 };
 
+
 const MainContent = () => (
   <Grommet theme={grommet}>
     <Main pad="small" top="small">
@@ -93,6 +124,7 @@ const MainContent = () => (
     </Main>
   </Grommet>
 );
+
 
 export default function Learn() {
   return (
@@ -103,3 +135,4 @@ export default function Learn() {
     </div>
   );
 }
+
