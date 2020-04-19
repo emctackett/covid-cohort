@@ -10,7 +10,6 @@ import {
   Box,
   List,
   Paragraph,
-  Button,
   WorldMap,
 } from "grommet";
 import { grommet } from "grommet/themes";
