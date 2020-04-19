@@ -26,7 +26,12 @@ const GridLayout = () => {
           Global cases of COVID-19
         </Heading>
         <br />
-=
+        // US MAP HERE
+        // "CLICK US STATE TO SEE NUMBER OF CONFIRMED CASES"
+        <Heading size="large">XXX,XXX,XXX</Heading>
+        <Heading level="3" margin="none">
+          Confirmed cases of COVID-19 in the United States
+        </Heading>
         <br />
         <Paragraph
           fill={true}
