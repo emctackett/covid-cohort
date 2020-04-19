@@ -21,14 +21,27 @@ const GridLayout = () => {
           <WorldMap color="#8e1600" height="100%" />
         </div>
         <Heading>Stay home, stay safe.</Heading>
-        <Heading size="xlarge">XXX,XXX,XXX</Heading>
+        <Heading size="xlarge"
+          color="#8F1701"
+          margin={{bottom: "small"}}
+        >
+          XXX,XXX,XXX
+        </Heading>
+        <br />
         <Heading level="3" margin="none">
           Global cases of COVID-19
         </Heading>
         <br />
-        // US MAP HERE
+        {// US MAP HERE
         // "CLICK US STATE TO SEE NUMBER OF CONFIRMED CASES"
-        <Heading size="large">XXX,XXX,XXX</Heading>
+      }
+        <Heading size="large"
+          color="#8F1701"
+          margin={{bottom: "small"}}
+        >
+          XXX,XXX,XXX
+        </Heading>
+        <br />
         <Heading level="3" margin="none">
           Confirmed cases of COVID-19 in the United States
         </Heading>
