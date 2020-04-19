@@ -11,7 +11,7 @@ import {
 import theme from "./Theme";
 
 const items = [
-  { label: "about", href: "/about" },
+  { label: "data", href: "/data" },
   { label: "learn", href: "/learn" },
   { label: "safety", href: "/safety" },
   { label: "remind", href: "/remind" },
