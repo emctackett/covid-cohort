@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
-import USAMap from "react-usa-map";
 
 import {
   Anchor,
@@ -14,37 +13,9 @@ import {
 } from "grommet";
 import { grommet } from "grommet/themes";
 
-const usData = () => {
-  fetch("http://covidtracking.com/api/us")
-  .then(response => response.json())
-  .then(data => data[0]['positive']);
+const formatNumber = num => {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
-
-class App extends Component {
-	mapHandler = (event) => {
-		alert(event.target.dataset.name);
-	};
-
-	statesCustomConfig = () => {
-		return {
-			"NJ" : {
-				fill: "navy",
-				clickHandler: (event) => console.log('Custom handler for NJ')
-			},
-			"NY" : {
-				fill: "#CC0000"
-			}
-		};
-	};
-
-	render() {
-		return (
-			<div className="App">
-				<USAMap onClick={this.mapHandler} />
-			</div>
-			);
-		}
-	}
 
 const GridLayout = () => {
   const [usPositives, setUsPositives] = useState(0);
@@ -73,22 +44,16 @@ const GridLayout = () => {
           Global cases of COVID-19
         </Heading>
         <br />
-        {// US MAP HERE
-        // "CLICK US STATE TO SEE NUMBER OF CONFIRMED CASES"
-      }
         <Heading size="large"
           color="#8F1701"
           margin={{bottom: "small"}}
         >
-          {usPositives}
+          {formatNumber(usPositives)}
         </Heading>
         <br />
         <Heading level="3" margin="none">
           Confirmed cases of COVID-19 in the United States
         </Heading>
-	<br />
-	<br />
-	<App />
         <br />
         <Paragraph
           fill={true}
@@ -116,7 +81,6 @@ const GridLayout = () => {
   );
 };
 
-
 const MainContent = () => (
   <Grommet theme={grommet}>
     <Main pad="small" top="small">
@@ -124,7 +88,6 @@ const MainContent = () => (
     </Main>
   </Grommet>
 );
-
 
 export default function Learn() {
   return (
@@ -135,4 +98,3 @@ export default function Learn() {
     </div>
   );
 }
-
