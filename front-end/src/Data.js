@@ -20,6 +20,7 @@ class StateDataMap extends Component {
   }
 
 	mapHandler = (event) => {
+    event.target.style.fill = '#8F1701';
     const stateName = event.target.dataset.name;
 
     fetch("https://covidtracking.com/api/v1/states/current.json")
@@ -33,22 +34,12 @@ class StateDataMap extends Component {
     });
 	};
 
-	statesCustomConfig = () => {
-		return {
-			"NJ" : {
-				fill: "navy",
-				clickHandler: (event) => console.log('Custom handler for NJ')
-			},
-			"NY" : {
-				fill: "#CC0000"
-			}
-		};
-	};
-
 	render() {
 		return (
 			<div className="App">
-				<USAMap onClick={this.mapHandler} />
+				<USAMap
+          onClick={this.mapHandler}
+         />
 			</div>
 		);
 	}
