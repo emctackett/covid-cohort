@@ -12,6 +12,7 @@ There are three primary goals for COVIDCoach -
 * [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
 * [React](https://reactjs.org/)
 
+* foo bar
 
 ## Authors
 * **Elizabeth Tackett** - [emctackett](https://github.com/emctackett)
