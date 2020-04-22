@@ -14,9 +14,12 @@ import {
 } from "grommet";
 import { grommet } from "grommet/themes";
 
-class App extends Component {
+class StateDataMap extends Component {
 	mapHandler = (event) => {
-		alert(event.target.dataset.name);
+    const stateName = event.target.dataset.name;
+
+    //setStateDataDisplay(stateName);
+    console.log(stateName);
 	};
 
 	statesCustomConfig = () => {
@@ -36,9 +39,9 @@ class App extends Component {
 			<div className="App">
 				<USAMap onClick={this.mapHandler} />
 			</div>
-			);
-		}
+		);
 	}
+}
 
 const GridLayout = () => {
   //https://blog.abelotech.com/posts/number-currency-formatting-javascript/
@@ -48,6 +51,7 @@ const GridLayout = () => {
 
   const [usPositives, setUsPositives] = useState(0);
   const [globalPositives, setGlobalPositives] = useState(0);
+  const [stateDataDisplay, setStateDataDisplay] = useState("Click on a state to view the current number of cases.");
 
   useEffect(() => {
     fetch("http://covidtracking.com/api/us")
@@ -77,9 +81,7 @@ const GridLayout = () => {
           Global cases of COVID-19
         </Heading>
         <br />
-        {// US MAP HERE
-        // "CLICK US STATE TO SEE NUMBER OF CONFIRMED CASES"
-      }
+
         <Heading size="large"
           color="#8F1701"
           margin={{bottom: "small"}}
@@ -90,9 +92,17 @@ const GridLayout = () => {
         <Heading level="3" margin="none">
           Confirmed cases of COVID-19 in the United States
         </Heading>
+        <Paragraph
+          fill={true}
+          margin={{ left: "xlarge", right: "xlarge" }}
+          size="large"
+          textAlign="center"
+        >
+          {stateDataDisplay}
+        </Paragraph>
 	<br />
 	<br />
-	<App />
+	<StateDataMap />
         <br />
         <Paragraph
           fill={true}
