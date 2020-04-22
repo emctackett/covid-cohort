@@ -15,6 +15,10 @@ import {
 import { grommet } from "grommet/themes";
 
 class StateDataMap extends Component {
+  formatNumber = num => {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
 	mapHandler = (event) => {
     const stateName = event.target.dataset.name;
 
@@ -25,7 +29,7 @@ class StateDataMap extends Component {
       const caseCount = stateData[0]['positive'];
       const displayEl = document.getElementById('state-data-display');
 
-      displayEl.textContent = `${stateName} has ${caseCount} confirmed cases.`;
+      displayEl.textContent = `${stateName} has ${this.formatNumber(caseCount)} confirmed cases.`;
     });
 	};
 
