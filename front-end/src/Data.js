@@ -20,8 +20,15 @@ class StateDataMap extends Component {
   }
 
 	mapHandler = (event) => {
-    event.target.style.fill = '#8F1701';
+    const allStates = event.target.parentElement.children;
+    const standardGray = "#D3D3D3";
     const stateName = event.target.dataset.name;
+
+    for (let i = 0; i < allStates.length; i++) {
+      allStates[i].style.fill = standardGray;
+    }
+
+    event.target.style.fill = '#8F1701'; // color selected state
 
     fetch("https://covidtracking.com/api/v1/states/current.json")
     .then(response => response.json())
