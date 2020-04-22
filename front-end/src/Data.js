@@ -74,9 +74,6 @@ const GridLayout = () => {
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
-        <div>
-          <WorldMap color="#8e1600" height="100%" />
-        </div>
         <Heading>Stay home, stay safe.</Heading>
         <Heading size="xlarge"
           color="#8F1701"
@@ -100,7 +97,10 @@ const GridLayout = () => {
         <Heading level="3" margin="none">
           Confirmed cases of COVID-19 in the United States
         </Heading>
+        <br />
+        <br />
         <Paragraph
+          color="#8F1701"
           fill={true}
           margin={{ left: "xlarge", right: "xlarge" }}
           size="large"
@@ -108,8 +108,6 @@ const GridLayout = () => {
         >
           <span id="state-data-display">Click on a state to view the current number of cases.</span>
         </Paragraph>
-	<br />
-	<br />
 	<StateDataMap />
         <br />
         <Paragraph
