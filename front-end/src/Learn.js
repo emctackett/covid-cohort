@@ -10,7 +10,6 @@ import {
   Box,
   List,
   Paragraph,
-  Button,
   WorldMap,
 } from "grommet";
 import { grommet } from "grommet/themes";
@@ -19,11 +18,8 @@ const GridLayout = () => {
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
-        <div>
-          <WorldMap color="#8e1600" height="100%" />
-        </div>
         <Heading>Stay home, stay safe.</Heading>
-        <Heading level="3" margin="none">
+        <Heading size="large" level="3" margin="none" color="#8F1701">
           What are the Symptoms of COVID-19?
         </Heading>
         <br />
@@ -57,7 +53,7 @@ const GridLayout = () => {
             ]}
           />
         </Box>
-        <Heading level="3" margin={{ bottom: "none" }}>
+        <Heading size="large" color="#8F1701" level="3" margin={{ bottom: "none" }}>
           What to do if You Have Symptoms
         </Heading>
         <br />
@@ -92,7 +88,7 @@ const GridLayout = () => {
             ]}
           />
         </Box>
-        <Heading level="3" margin={{ bottom: "none" }}>
+        <Heading size="large" color="#8F1701" level="3" margin={{ bottom: "none" }}>
           When to Seek Medical Attention
         </Heading>
         <br />
@@ -121,20 +117,6 @@ const GridLayout = () => {
             ]}
           />
         </Box>
-        <div>
-          <Button
-            label="Learn more"
-            href="/learn"
-            color="#000000"
-            margin="small"
-          />
-          <Button
-            label="Sign up"
-            href="/learn"
-            color="#000000"
-            margin="small"
-          />
-        </div>
       </Box>
     </div>
   );
