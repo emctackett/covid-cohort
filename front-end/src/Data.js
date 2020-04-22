@@ -73,10 +73,6 @@ const GridLayout = () => {
     .then(data => setGlobalPositives(data.cases));
   });
 
-  const updateStateDataDisplay = (state) => {
-    console.log('executing updateStateDataDisplay');
-  }
-
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
