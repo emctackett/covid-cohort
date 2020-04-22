@@ -18,8 +18,15 @@ class StateDataMap extends Component {
 	mapHandler = (event) => {
     const stateName = event.target.dataset.name;
 
-    //setStateDataDisplay(stateName);
-    console.log(stateName);
+    fetch("https://covidtracking.com/api/v1/states/current.json")
+    .then(response => response.json())
+    .then(data => {
+      const stateData = data.filter(obj => obj.state === stateName);
+      const caseCount = stateData[0]['positive'];
+      const displayEl = document.getElementById('state-data-display');
+
+      displayEl.textContent = `${stateName} has ${caseCount} confirmed cases.`;
+    });
 	};
 
 	statesCustomConfig = () => {
@@ -51,7 +58,6 @@ const GridLayout = () => {
 
   const [usPositives, setUsPositives] = useState(0);
   const [globalPositives, setGlobalPositives] = useState(0);
-  const [stateDataDisplay, setStateDataDisplay] = useState("Click on a state to view the current number of cases.");
 
   useEffect(() => {
     fetch("http://covidtracking.com/api/us")
@@ -62,6 +68,10 @@ const GridLayout = () => {
     .then(response => response.json())
     .then(data => setGlobalPositives(data.cases));
   });
+
+  const updateStateDataDisplay = (state) => {
+    console.log('executing updateStateDataDisplay');
+  }
 
   return (
     <div>
@@ -98,7 +108,7 @@ const GridLayout = () => {
           size="large"
           textAlign="center"
         >
-          {stateDataDisplay}
+          <span id="state-data-display">Click on a state to view the current number of cases.</span>
         </Paragraph>
 	<br />
 	<br />
