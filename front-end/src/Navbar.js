@@ -13,6 +13,7 @@ import theme from "./Theme";
 const items = [
   { label: "data", href: "/data" },
   { label: "learn", href: "/learn" },
+  { label: "avoid", href: "/avoid" },
   { label: "safety", href: "/safety" },
   { label: "remind", href: "/remind" },
   { label: "help", href: "/help" },
