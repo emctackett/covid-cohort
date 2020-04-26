@@ -17,10 +17,24 @@ const GridLayout = () => {
     <div>
       <Box background="light-2" gridArea="info" align="center">
         <Heading>Stay home, stay safe.</Heading>
-        <Heading size="large" level="3" margin="none" color="#8F1701">
+        <Box alignContent="start" width="xlarge">
+	<Paragraph
+		fill={true}
+		margin={{ left: "xlarge", right: "xlarge" }}
+		size="large"
+		color="#8F1701"
+	>	
+		<b>"COVID-19 is thought to spread mainly through close contact from 
+		person-to-person in respitory droplets from someone who is infected."
+	<br />
+	<br />
+		-CDC </b>
+	<br />
+	</Paragraph>
+	</Box>
+	<Heading size="large" level="3" margin="none" color="#8F1701">
             How Do I Avoid COVID-19?
         </Heading>
-        <br />
         <Box alignContent="start" width="xlarge">
         <Paragraph
           fill={true}
@@ -35,17 +49,42 @@ const GridLayout = () => {
           </Anchor>
           the following are some guidelines you can follow to avoid contracting COVID-19
         </Paragraph>
-        <Paragraph
+	</Box>
+	<b><i>It is important to note that one can have COVID-19, be contagious, 
+		and feel no symptoms.</i></b> 
+        <Box alignContent="start" width="xlarge">
+	<Paragraph
             fill={true}
             margin={{ left: "xlarge", right: "xlarge" }}
-            size="large"
+            size="medium"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac efficitur tortor. Morbi eu
-            mi sit amet quam vestibulum lacinia. Duis vel turpis non metus scelerisque eleifend in fringilla
-            diam. Duis vitae quam nibh. Donec ultrices viverra arcu, id vestibulum nibh accumsan eu. Cras at
-            porta urna, quis facilisis orci. Cras vitae odio iaculis felis malesuada accumsan ultrices ultricies
-            ante. Vivamus commodo, risus quis iaculis ultrices, augue odio auctor velit, id rhoncus risus odio
-            et ipsum.  
+		<br />
+            	• <b> The best way to prevent getting COVD-19 is to avoid being exposed 
+		to the virus.</b> 
+		<br /> In other words, stay home and stay safe.
+		<br />
+		<br />
+		• Wash your hands often with soap and water for at least 20 seconds.
+		<br />
+		<br />
+		• If you do not have access to soap and watr, use a hand sanitizer 
+		that contains at least 60% alocohol.
+		<br />
+		<br />
+		• Avoid touching your face, especially your eyes, nose, and mouth, 
+		with unwashed hands.
+		<br />
+		<br />
+		• Avoid close contact with people who are sick.
+		<br />
+		<br />
+		• Keep distance from others.
+		<br />
+		<br />
+		• Cover you mouth and nose with a face cover / mask when around others.
+		<br />
+		<br />
+		• Clean and disinfect frequently touched surfaces daily. 
         </Paragraph>
         </Box>
 
@@ -71,15 +110,54 @@ const GridLayout = () => {
           <Paragraph
             fill={true}
             margin={{ left: "xlarge", right: "xlarge" }}
-            size="large"
+            size="medium"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac efficitur tortor. Morbi eu
-            mi sit amet quam vestibulum lacinia. Duis vel turpis non metus scelerisque eleifend in fringilla
-            diam. Duis vitae quam nibh. Donec ultrices viverra arcu, id vestibulum nibh accumsan eu. Cras at
-            porta urna, quis facilisis orci. Cras vitae odio iaculis felis malesuada accumsan ultrices ultricies
-            ante. Vivamus commodo, risus quis iaculis ultrices, augue odio auctor velit, id rhoncus risus odio
-            et ipsum.  
+		• Stay at least 6 feet from other people.
+		<br />
+		<br />
+		• Do not gather in groups.
+		<br />
+		<br />
+		• Stay out of crowded places and avoid mass gatherings.
+		<br />
+		<br />
+		• Stay home when possible.  
           </Paragraph>
+	  <Paragraph
+	    fill={true}
+	    margin={{ left: "xlarge", right: "xlarge" }}
+	    size="xlarge"
+	    color="#8F1701"
+	  >
+		<b>Tips For Social Distancing</b>
+	  </Paragraph>
+          <Paragraph
+            fill={true}
+            margin={{ left: "xlarge", right: "xlarge" }}
+            size="medium"
+          >
+		• For medicine, consider using a mail-order service. Ask your pharmacist
+		about the available options. 
+		<br />
+		<br />
+		• For groceries, consider a delivery service or a curbside pick up.
+		<br />
+		<br />
+		• When you have to go out, cover your nose and mouth with a face cover / mask.
+		<br />
+		<br />
+		• Work from home when possible.
+		<br />
+		<br />
+		• If possible, avoid public transportation and ridesharing
+		<br />
+		<br />
+		• If you are a student, talk to your school about digital / distance learning.
+		<br />
+		<br />
+		• <b>Most importantly, stay connected while staying away.</b>
+          </Paragraph>
+
         </Box>
       </Box>
     </div>
