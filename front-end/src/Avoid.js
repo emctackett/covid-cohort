@@ -67,8 +67,8 @@ const GridLayout = () => {
 		• Wash your hands often with soap and water for at least 20 seconds.
 		<br />
 		<br />
-		• If you do not have access to soap and watr, use a hand sanitizer 
-		that contains at least 60% alocohol.
+		• If you do not have access to soap and water, use a hand sanitizer 
+		that contains at least 60% alcohol.
 		<br />
 		<br />
 		• Avoid touching your face, especially your eyes, nose, and mouth, 
