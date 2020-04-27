@@ -25,7 +25,7 @@ const GridLayout = () => {
 		color="#8F1701"
 	>	
 		<b>"COVID-19 is thought to spread mainly through close contact from 
-		person-to-person in respitory droplets from someone who is infected."
+		person-to-person in respiratory droplets from someone who is infected."
 	<br />
 	<br />
 		-CDC </b>
