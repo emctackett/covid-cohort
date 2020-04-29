@@ -187,6 +187,25 @@ const GridLayout = () => {
             <br />
           </Paragraph>
         </Box>
+        <Box justify="center" pad="large" align="center">
+          <Heading size="large" level="3" margin="none" color="#8F1701">
+            Learn More About COVID-19
+          </Heading>
+          <Box pad="large" align="center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BtN-goy9VOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <Paragraph
+              fill={true}
+              margin={{ left: "xlarge", right: "xlarge" }}
+              size="large"
+            >
+              Citations for the information presented in this video are presented{" "}
+              <Anchor
+                href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html"
+                color="#000000"
+              >here.</Anchor>{" "}
+            </Paragraph>
+          </Box>
+        </Box>
       </Box>
     </div>
   );
