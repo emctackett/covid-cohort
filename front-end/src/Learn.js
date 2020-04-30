@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
+import ResizedIframe from "./EmbedPlayer.js";
 
 import {
   Anchor,
@@ -186,6 +187,27 @@ const GridLayout = () => {
             <br />
             <br />
           </Paragraph>
+        </Box>
+        <Box justify="center" pad="large" align="center">
+          <Heading size="large" level="3" margin="none" color="#8F1701">
+            Learn More About COVID-19
+          </Heading>
+          <Box pad="large" align="center">
+            <ResizedIframe
+              src="https://www.youtube.com/embed/BtN-goy9VOY"
+            />
+            <Paragraph
+              fill={true}
+              margin={{ left: "xlarge", right: "xlarge" }}
+              size="large"
+            >
+              Citations for the information presented in this video are presented{" "}
+              <Anchor
+                href="https://sites.google.com/view/sourcescorona"
+                color="#000000"
+              >here.</Anchor>{" "}
+            </Paragraph>
+          </Box>
         </Box>
       </Box>
     </div>
