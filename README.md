@@ -23,12 +23,25 @@ There are three primary goals for COVIDCoach -
 
 
 ## Running
-To run the project, first clone it and `cd` into the directory:
+To run the project, first clone it and `cd` into the covid-cohort/front-end directory:
 ```bash
 git clone https://github.com/emctackett/covid-cohort.git
-cd covid-cohort
+cd covid-cohort\front-end
 ```
 
+Install and update dependencies with npm:
+```bash
+npm install
+```
+
+Run the application with npm:
+```bash
+npm start
+```
+
+This will open COVIDCoach in a new tab on your default browswer. To end the program, go back to the terminal and press `ctrl` + `c`, where the program will confirm that you want to terminate the job.
+
+Ignore below:
 Ensure all Python dependencies are installed:
 ```bash
 pip install -r requirements.txt
