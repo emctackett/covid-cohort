@@ -40,19 +40,3 @@ npm start
 ```
 
 This will open COVIDCoach in a new tab on your default browswer. To end the program, go back to the terminal and press `ctrl` + `c`, where the program will confirm that you want to terminate the job.
-
-Ignore below:
-Ensure all Python dependencies are installed:
-```bash
-pip install -r requirements.txt
-```
-
-If you have Python 3 _and_ 2 installed, you may need to specify `pip3` instead of `pip` for installation.
-
-Once dependencies are installed, simply run the `app.py` script with Python:
-```bash
-python app.py
-```
-Again, if you have multiple versions of Python installed you may need to specify `python3` instead of `python`.
-
-You should see the app start up and start logging to `stdout`. If this is on your local machine, you should be able to navigate to `localhost:5000` in your browser and see the current site.
