@@ -12,13 +12,33 @@ const renderCustomResultPage = obj => {
   if (obj.totalPoints === obj.correctPoints) {
     return (
       <div>
-        Go out!
+      <Heading size="small"
+        color="#8F1701"
+        margin={{bottom: "small"}}
+      >Go out when necessary, but exercise caution.
+      </Heading>
+      <Paragraph
+        fill={true}
+        size="large"
+        textAlign="center">
+      According to your answers, you are not displaying any symptoms of COVID-19.  Please utilize a face covering and practice social distancing.  Wash your hands frequently and avoid touching your face.
+      </Paragraph>
       </div>
     )
   } else {
     return (
       <div>
-        Stay home!
+      <Heading size="small"
+        color="#8F1701"
+        margin={{bottom: "small"}}
+      >Stay home.
+      </Heading>
+      <Paragraph
+        fill={true}
+        size="large"
+        textAlign="center">
+      According to your answers, you are either displaying symptoms of COVID-19, have been in contact with someone who has tested positive for COVID-19, or you do not have an adequate face covering.  It is recommended that you stay home.
+      </Paragraph>
       </div>
     );
   }
