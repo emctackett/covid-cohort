@@ -11,7 +11,7 @@ const quiz = {
         "No"
       ],
       "correctAnswer": "2",
-      "messageForIncorrectAnswer": "Stay home. We recommend you call your physician.",
+      "point": "10",
     },
     {
       "question": "Are you short of breath?",
@@ -22,8 +22,7 @@ const quiz = {
         "No"
       ],
       "correctAnswer": "2",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Stay home.",
+      "point": "10",
     },
     {
       "question": "Do you have a cough?",
@@ -34,7 +33,7 @@ const quiz = {
         "No"
       ],
       "correctAnswer": "2",
-      "messageForIncorrectAnswer": "Stay home.",
+      "point": "10",
     },
     {
       "question": "Are you experiencing chills or shaking?",
@@ -45,7 +44,7 @@ const quiz = {
         "No"
       ],
       "correctAnswer": "2",
-      "messageForIncorrectAnswer": "Stay home.",
+      "point": "10",
     },
     {
       "question": "Are you experiencing any of the following: muscle pain, headache, sore throat, loss of taste or smell?",
@@ -56,7 +55,7 @@ const quiz = {
         "No"
       ],
       "correctAnswer": "2",
-      "messageForIncorrectAnswer": "Stay home.",
+      "point": "10",
     },
     {
       "question": "In the past two weeks, have you had contact with someone you know has been diagnosed with COVID-19?",
@@ -67,7 +66,7 @@ const quiz = {
         "No"
       ],
       "correctAnswer": "2",
-      "messageForIncorrectAnswer": "Stay home",
+      "point": "10",
     },
     {
       "question": "Will you wear a cloth face covering while out?",
@@ -78,7 +77,7 @@ const quiz = {
         "No"
       ],
       "correctAnswer": "1",
-      "messageForIncorrectAnswer": "Stay home"
+      "point": "10",
     }
   ]
 };
