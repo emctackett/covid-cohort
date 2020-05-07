@@ -1,5 +1,4 @@
 const quiz = {
-  "quizTitle": "Should I go Out?",
   "quizSynopsis": "If you are feeling unsure whether it's safe to leave home, take this quick quiz that is based off of the COVID-19 guidelines.",
   "questions": [
     {
