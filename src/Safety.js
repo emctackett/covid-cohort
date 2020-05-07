@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
+import Quiz from "./Quiz";
 
 import {
   Anchor,
@@ -15,7 +16,7 @@ import { grommet } from "grommet/themes";
 const MainContent = () => (
   <Grommet theme={grommet}>
     <Main pad="small" top="small">
-
+      <Quiz />
     </Main>
   </Grommet>
 );
