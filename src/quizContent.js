@@ -1,5 +1,5 @@
 const quiz = {
-  "quizSynopsis": "If you are feeling unsure whether it's safe to leave home, take this quick quiz that is based off of the COVID-19 guidelines.",
+  "quizSynopsis": "Answer seven simple questions to see your recommendation.",
   "questions": [
     {
       "question": "In the past 48 hours, have you had a fever of 100.4° or above?",

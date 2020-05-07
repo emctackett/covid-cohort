@@ -1,6 +1,6 @@
 .react-quiz-container {
   text-align: center;
-  box-sizing: content-box;
+  box-sizing: border-box;
   margin-bottom: 50px;
 }
 
