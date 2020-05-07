@@ -57,7 +57,8 @@ const GridLayout = () => {
  const formatNumber = num => {
    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
  }
-
+  var today = new Date();
+  today = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
   const [usPositives, setUsPositives] = useState(0);
   const [globalPositives, setGlobalPositives] = useState(0);
 
@@ -113,16 +114,24 @@ const GridLayout = () => {
         <Paragraph
           fill={true}
           margin={{ left: "xlarge", right: "xlarge" }}
+          size="medium"
+          textAlign="center"
+        >
+          *As of {" "} {today}
+        </Paragraph>
+        <Paragraph
+          fill={true}
+          margin={{ left: "xlarge", right: "xlarge" }}
           size="large"
           textAlign="center"
         >
-          Data on this page comes from {" "}
+          Data on this page comes from {" "} 
           <Anchor
             href="https://www.cdc.gov/coronavirus"
             color="#000000"
           >
-            The Centers for Disease Control
-          </Anchor>{" "}and
+          The Centers for Disease Control
+          </Anchor>{" "} and {" "}
           <Anchor
             href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
             color="#000000"
