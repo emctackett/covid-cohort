@@ -5,6 +5,7 @@ import App from "./App";
 import Learn from "./Learn";
 import Data from "./Data";
 import Avoid from "./Avoid";
+import Safety from "./Safety";
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
@@ -14,6 +15,7 @@ const routing = (
       <Route exact path="/data" component={Data} />
       <Route exact path="/learn" component={Learn} />
       <Route exact path="/avoid" component={Avoid} />
+      <Route path="/safety" component={Safety} />
       {/* <Route path="/about" component={} />
       <Route path="/learn" component={} />
       <Route path="/safety" component={} />

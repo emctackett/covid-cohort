@@ -1,0 +1,29 @@
+.react-quiz-container {
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+.react-quiz-container > div > h2 + div {
+  display: none;
+}
+
+.react-quiz-container .questionWrapper .btn {
+  margin: 10px auto;
+}
+
+.react-quiz-container .questionWrapper .btn {
+  margin: 10px auto;
+}
+
+.incorrect {
+  background-color: blue;
+}
+
+.questionModal + div {
+  display: none;
+}
+
+.tag-container {
+  display: none;
+}

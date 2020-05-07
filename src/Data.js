@@ -10,7 +10,6 @@ import {
   Main,
   Box,
   Paragraph,
-  WorldMap,
 } from "grommet";
 import { grommet } from "grommet/themes";
 
@@ -125,7 +124,7 @@ const GridLayout = () => {
           size="large"
           textAlign="center"
         >
-          Data on this page comes from {" "} 
+          Data on this page comes from {" "}
           <Anchor
             href="https://www.cdc.gov/coronavirus"
             color="#000000"
