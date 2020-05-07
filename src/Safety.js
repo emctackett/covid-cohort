@@ -1,22 +1,18 @@
 import React from "react";
 import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
-import Quiz from "./Quiz";
+import UserQuiz from "./Quiz";
 
 import {
-  Anchor,
-  Heading,
-  Grommet,
   Main,
-  Box,
-  Paragraph,
+  Grommet
 } from "grommet";
 import { grommet } from "grommet/themes";
 
 const MainContent = () => (
   <Grommet theme={grommet}>
     <Main pad="small" top="small">
-      <Quiz />
+      <UserQuiz />
     </Main>
   </Grommet>
 );

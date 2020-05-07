@@ -1,20 +1,17 @@
 import React from "react";
+import Quiz from 'react-quiz-component';
+import quiz from './quizContent';
 
 import {
-  Anchor,
   Heading,
-  Grommet,
-  Main,
-  Box,
-  Paragraph,
 } from "grommet";
 import { grommet } from "grommet/themes";
 
-
-export default function Quiz() {
+export default function UserQuiz() {
   return (
     <div>
       <Heading>QUIZ PLACEHOLDER</Heading>
+      <Quiz quiz={quiz}/>
     </div>
   );
 }
