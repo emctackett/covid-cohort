@@ -19,23 +19,25 @@ There are three primary goals for COVIDCoach
 
 
 ## How To Run COVIDCoach
-To run the project, first clone it and `cd` into the covid-cohort directory:
+To run the project, first clone it OR download the source code zip file from the GitHub release and unzip the file. Then `cd` into the covid-cohort directory using a command line interface tool:
 ```bash
 git clone https://github.com/emctackett/covid-cohort.git
 cd covid-cohort
-```
+``` '
 
 ### npm
 
-Install and update dependencies with npm:
+Next, install and update necessary dependencies with npm by typing:
 ```bash
 npm install
 ```
 
-Run the application with npm:
+Run the application with npm by typing:
 ```bash
 npm start
 ```
+
+A tab should automatically open in your default browser at http://localhost:3000/ where you can view the site.
 
 ### yarn
 
