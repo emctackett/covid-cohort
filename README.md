@@ -23,7 +23,7 @@ To run the project, first clone it OR download the source code zip file from the
 ```bash
 git clone https://github.com/emctackett/covid-cohort.git
 cd covid-cohort
-``` '
+``` 
 
 ### npm
 
