@@ -42,9 +42,12 @@ const CollapsableNav = () => (
             <Menu
               label="Navigate"
               items={[
-                { label: "This is", onClick: () => {} },
-                { label: "The Menu", onClick: () => {} },
-                { label: "Component", onClick: () => {} },
+                { label: "data", href="/data" },
+                { label: "learn", href="/learn" },
+                { label: "avoid", href="/avoid" },
+                { label: "safety", href="/safety" },
+                { label: "remind", href="/remind" },
+                { label: "help", href="/help" }
               ]}
             />
           ) : (
