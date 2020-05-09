@@ -55,11 +55,16 @@ class StateDataMap extends Component {
 	}
 }
 
+const getDay = () => {
+  let today = new Date();
+
+  return (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
+}
+
 const GridLayout = () => {
   //https://blog.abelotech.com/posts/number-currency-formatting-javascript/
+  var today = getDay();
 
-  var today = new Date();
-  today = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
   const [usPositives, setUsPositives] = useState(0);
   const [globalPositives, setGlobalPositives] = useState(0);
 
