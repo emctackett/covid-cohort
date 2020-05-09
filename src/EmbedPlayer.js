@@ -8,9 +8,9 @@ const ResizedIframe = (props) => {
       <Heading size="small" textAlign="center">Coronavirus: Explained</Heading>
       <IframeResizer
         src={props.src}
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
         style={{
           height: "500px",
           minHeight: "100%",
