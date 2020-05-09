@@ -15,7 +15,6 @@ const GridLayout = () => {
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
-        {/* <img src={banner} width="100%" height="auto" /> */}
         <div>
           <WorldMap color="#8e1600" height="auto" />
         </div>
@@ -79,12 +78,6 @@ const GridLayout = () => {
         <div>
           <Button
             label="Learn more"
-            href="/learn"
-            color="#000000"
-            margin="small"
-          />
-          <Button
-            label="Sign up"
             href="/learn"
             color="#000000"
             margin="small"
