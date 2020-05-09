@@ -16,11 +16,6 @@ const routing = (
       <Route exact path="/learn" component={Learn} />
       <Route exact path="/avoid" component={Avoid} />
       <Route path="/safety" component={Safety} />
-      {/* <Route path="/about" component={} />
-      <Route path="/learn" component={} />
-      <Route path="/safety" component={} />
-      <Route path="/remind" component={} />
-      <Route path="/help" component={} /> */}
     </div>
   </Router>
 );
