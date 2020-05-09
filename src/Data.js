@@ -13,10 +13,11 @@ import {
 } from "grommet";
 import { grommet } from "grommet/themes";
 
+let formatNumber = num => {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
 class StateDataMap extends Component {
-  formatNumber = num => {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-  }
 
   getStateData = (stateName) => {
     fetch("https://covidtracking.com/api/v1/states/current.json")
@@ -26,7 +27,7 @@ class StateDataMap extends Component {
       const caseCount = stateData[0]['positive'];
       const displayEl = document.getElementById('state-data-display');
 
-      displayEl.textContent = `${stateName} has ${this.formatNumber(caseCount)} confirmed cases.`;
+      displayEl.textContent = `${stateName} has ${formatNumber(caseCount)} confirmed cases.`;
     });
   }
 
@@ -56,9 +57,7 @@ class StateDataMap extends Component {
 
 const GridLayout = () => {
   //https://blog.abelotech.com/posts/number-currency-formatting-javascript/
- const formatNumber = num => {
-   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
- }
+
   var today = new Date();
   today = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
   const [usPositives, setUsPositives] = useState(0);
