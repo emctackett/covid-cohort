@@ -18,6 +18,18 @@ class StateDataMap extends Component {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
 
+  getStateData = (stateName) => {
+    fetch("https://covidtracking.com/api/v1/states/current.json")
+    .then(response => response.json())
+    .then(data => {
+      const stateData = data.filter(obj => obj.state === stateName);
+      const caseCount = stateData[0]['positive'];
+      const displayEl = document.getElementById('state-data-display');
+
+      displayEl.textContent = `${stateName} has ${this.formatNumber(caseCount)} confirmed cases.`;
+    });
+  }
+
 	mapHandler = (event) => {
     const allStates = event.target.parentElement.children;
     const standardGray = "#D3D3D3";
@@ -28,16 +40,7 @@ class StateDataMap extends Component {
     }
 
     event.target.style.fill = '#8F1701'; // color selected state
-
-    fetch("https://covidtracking.com/api/v1/states/current.json")
-    .then(response => response.json())
-    .then(data => {
-      const stateData = data.filter(obj => obj.state === stateName);
-      const caseCount = stateData[0]['positive'];
-      const displayEl = document.getElementById('state-data-display');
-
-      displayEl.textContent = `${stateName} has ${this.formatNumber(caseCount)} confirmed cases.`;
-    });
+    this.getStateData(stateName);
 	};
 
 	render() {
