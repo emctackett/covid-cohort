@@ -42,9 +42,42 @@ const CollapsableNav = () => (
             <Menu
               label="Navigate"
               items={[
-                { label: "This is", onClick: () => {} },
-                { label: "The Menu", onClick: () => {} },
-                { label: "Component", onClick: () => {} },
+                {
+                  label: "data",
+                  onClick: (event) => {
+                    window.location.href = "/data";
+                  },
+                },
+                {
+                  label: "learn",
+                  onClick: (event) => {
+                    window.location.href = "/learn";
+                  },
+                },
+                {
+                  label: "avoid",
+                  onClick: (event) => {
+                    window.location.href = "/avoid";
+                  },
+                },
+                {
+                  label: "safety",
+                  onClick: (event) => {
+                    window.location.href = "/safety";
+                  },
+                },
+                {
+                  label: "remind",
+                  onClick: (event) => {
+                    window.location.href = "/remind";
+                  },
+                },
+                {
+                  label: "help",
+                  onClick: (event) => {
+                    window.location.href = "/help";
+                  },
+                },
               ]}
             />
           ) : (
