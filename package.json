@@ -18,6 +18,7 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
+    "heroku-postbuid": "cross-env NODE_ENV=production WEBPACK_CONFIG=browser_prod,server_prod webpack --colors",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
