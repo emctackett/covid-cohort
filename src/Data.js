@@ -3,35 +3,29 @@ import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
 import USAMap from "react-usa-map";
 
-import {
-  Anchor,
-  Heading,
-  Grommet,
-  Main,
-  Box,
-  Paragraph,
-} from "grommet";
+import { Anchor, Heading, Grommet, Main, Box, Paragraph } from "grommet";
 import { grommet } from "grommet/themes";
 
-let formatNumber = num => {
-  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-}
+let formatNumber = (num) => {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+};
 
 class StateDataMap extends Component {
-
   getStateData = (stateName) => {
     fetch("https://covidtracking.com/api/v1/states/current.json")
-    .then(response => response.json())
-    .then(data => {
-      const stateData = data.filter(obj => obj.state === stateName);
-      const caseCount = stateData[0]['positive'];
-      const displayEl = document.getElementById('state-data-display');
+      .then((response) => response.json())
+      .then((data) => {
+        const stateData = data.filter((obj) => obj.state === stateName);
+        const caseCount = stateData[0]["positive"];
+        const displayEl = document.getElementById("state-data-display");
 
-      displayEl.textContent = `${stateName} has ${formatNumber(caseCount)} confirmed cases.`;
-    });
-  }
+        displayEl.textContent = `${stateName} has ${formatNumber(
+          caseCount
+        )} confirmed cases.`;
+      });
+  };
 
-	mapHandler = (event) => {
+  mapHandler = (event) => {
     const allStates = event.target.parentElement.children;
     const standardGray = "#D3D3D3";
     const stateName = event.target.dataset.name;
@@ -40,26 +34,26 @@ class StateDataMap extends Component {
       allStates[i].style.fill = standardGray;
     }
 
-    event.target.style.fill = '#8F1701'; // color selected state
+    event.target.style.fill = "#8F1701"; // color selected state
     this.getStateData(stateName);
-	};
+  };
 
-	render() {
-		return (
-			<div className="App">
-				<USAMap
-          onClick={this.mapHandler}
-         />
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div className="App">
+        <USAMap onClick={this.mapHandler} />
+      </div>
+    );
+  }
 }
 
 const getDay = () => {
   let today = new Date();
 
-  return (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
-}
+  return (
+    today.getMonth() + 1 + "/" + today.getDate() + "/" + today.getFullYear()
+  );
+};
 
 const GridLayout = () => {
   //https://blog.abelotech.com/posts/number-currency-formatting-javascript/
@@ -70,22 +64,20 @@ const GridLayout = () => {
 
   useEffect(() => {
     fetch("http://covidtracking.com/api/us")
-    .then(response => response.json())
-    .then(data => setUsPositives(data[0]['positive']));
+      .then((response) => response.json())
+      .then((data) => setUsPositives(data[0]["positive"]));
 
-    fetch('https://coronavirus-19-api.herokuapp.com/all')
-    .then(response => response.json())
-    .then(data => setGlobalPositives(data.cases));
+    fetch("https://coronavirus-19-api.herokuapp.com/all")
+      .then((response) => response.json())
+      .then((data) => setGlobalPositives(data.cases));
   });
 
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
-        <Heading>Stay home, stay safe.</Heading>
-        <Heading size="xlarge"
-          color="#8F1701"
-          margin={{bottom: "small"}}
-        >
+        <Heading>Stay home, stay safe.</Heading>{" "}
+        <Heading size="h2"> As of {today}, there are... </Heading>
+        <Heading size="xlarge" color="#8F1701" margin={{ bottom: "small" }}>
           {formatNumber(globalPositives)}
         </Heading>
         <br />
@@ -93,11 +85,7 @@ const GridLayout = () => {
           Global cases of COVID-19
         </Heading>
         <br />
-
-        <Heading size="large"
-          color="#8F1701"
-          margin={{bottom: "small"}}
-        >
+        <Heading size="large" color="#8F1701" margin={{ bottom: "small" }}>
           {formatNumber(usPositives)}
         </Heading>
         <br />
@@ -113,31 +101,23 @@ const GridLayout = () => {
           size="large"
           textAlign="center"
         >
-          <span id="state-data-display">Click on a state to view the current number of cases.</span>
+          <span id="state-data-display">
+            Click on a state to view the current number of cases.
+          </span>
         </Paragraph>
-	<StateDataMap />
+        <StateDataMap />
         <br />
-        <Paragraph
-          fill={true}
-          margin={{ left: "xlarge", right: "xlarge" }}
-          size="medium"
-          textAlign="center"
-        >
-          *As of {" "} {today}
-        </Paragraph>
         <Paragraph
           fill={true}
           margin={{ left: "xlarge", right: "xlarge" }}
           size="large"
           textAlign="center"
         >
-          Data on this page comes from {" "}
-          <Anchor
-            href="https://www.cdc.gov/coronavirus"
-            color="#000000"
-          >
-          The Centers for Disease Control
-          </Anchor>{" "} and {" "}
+          Data on this page comes from{" "}
+          <Anchor href="https://www.cdc.gov/coronavirus" color="#000000">
+            The Centers for Disease Control
+          </Anchor>{" "}
+          and{" "}
           <Anchor
             href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
             color="#000000"
@@ -151,7 +131,6 @@ const GridLayout = () => {
   );
 };
 
-
 const MainContent = () => (
   <Grommet theme={grommet}>
     <Main pad="small" top="small">
@@ -159,7 +138,6 @@ const MainContent = () => (
     </Main>
   </Grommet>
 );
-
 
 export default function Learn() {
   return (
