@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Heading, Box, Grommet, TextInput } from "grommet";
+import { Button, Heading, Box, Grommet, TextInput } from "grommet";
 import { Search } from "grommet-icons";
 import { Paragraph } from "grommet";
 import guidelines from "./StateGuideline";
@@ -14,12 +14,13 @@ const IconTextInput = () => {
 };
 
 const Location = () => {
+  const [runSearch, setSearch] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
   const [hasError, setErrors] = useState(false);
   const [locale, setLocale] = useState({});
 
   async function fetchData() {
-    const zipContainer = document.getElementById("zip-entry");
+    const zipContainer = document.getElementById("search");
     const zipcode = zipContainer.value.substring(0, 5);
     const requestUrl = `https://www.zipcodeapi.com/rest/${clientKey}/info.json/${zipcode}/radians`;
 
@@ -38,34 +39,36 @@ const Location = () => {
       .catch((err) => setErrors(err));
   }
 
-  const handleKeyPress = (e) => {
+  function handleKeyPress(e) {
     if (e.which === 13) {
-      this.fetchData();
+      fetchData();
     }
-  };
+  }
 
   return (
     <div align="center">
       <Heading size="medium" color="#8F1701" margin={{ top: "small" }}>
-        View your state guidelines:
+        View Your State Guidelines
       </Heading>
       <input
+        id="search"
         type="text"
-        placeholder="Enter zipcode.."
-        style={{ height: "40px", width: "500px" }}
+        placeholder=" Enter your zipcode.."
+        onChange={() => setSearch(false)}
         onKeyPress={handleKeyPress}
-      ></input>
-      <Paragraph
+        style={{ width: "800px", height: "40px" }}
+      />
+      <Button
+        size="small"
         color="#8F1701"
-        fill={true}
-        margin={{ left: "xlarge", right: "xlarge" }}
-        size="large"
-        textAlign="center"
-      >
-        <span id="state-guide-display"></span>
-
-        <span id="guide">{}</span>
-      </Paragraph>
+        type="button"
+        primary="true"
+        label="Search"
+        margin="small"
+        icon={<Search />}
+        onClick={() => setSearch(true)}
+      />
+      {isLoaded === true ? <span /> : <span />}
     </div>
   );
 };
