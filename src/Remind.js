@@ -3,7 +3,6 @@ import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
 
 import RemindForm from "./RemindForm";
-import ApiCalendar from "react-google-calendar-api";
 
 import {
   Anchor,
