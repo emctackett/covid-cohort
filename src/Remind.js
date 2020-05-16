@@ -1,8 +1,7 @@
 import React from "react";
 import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
-
-import RemindForm from "./RemindForm";
+import DoubleButton from "./RemindForm";
 
 import {
   Anchor,
@@ -52,8 +51,8 @@ const GridLayout = () => {
             margin={{ left: "xlarge", right: "xlarge" }}
             size="large"
           >
-	< RemindForm  />
 
+	< DoubleButton />
 	{/* call API / reminder form here */}
 
 	 </Paragraph>
