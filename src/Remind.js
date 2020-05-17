@@ -3,8 +3,7 @@ import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
 import DoubleButton from "./RemindForm";
 
-import {
-  Anchor, Heading, Grommet, Main, Box, Paragraph} from "grommet";
+import {Heading, Grommet, Main, Box, Paragraph} from "grommet";
 import { grommet } from "grommet/themes";
 
 
