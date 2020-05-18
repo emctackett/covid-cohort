@@ -19,8 +19,8 @@ import "react-datepicker/dist/react-datepicker.css";
       }
 	state = {
 		startDate: new Date(),
-		start: '',
-		end: '',
+		start: new Date(),
+		end: new Date(),
 		description: ''
 	};
 
@@ -53,6 +53,24 @@ import "react-datepicker/dist/react-datepicker.css";
 			end: '',
 			description: ''
 		})
+
+		const event: object = {
+			'summary': this.state.description,
+			'start': {
+				'dateTime': this.state.start
+			},
+			'end': {
+				'dateTime': this.state.end
+			}
+		};
+
+		ApiCalendar.createEvent(event, this.calendar)
+			.then((result:objet) => {
+				console.log(result);
+			})
+			.catch((error: any) => {
+				console.log(error);
+			});
 	}
 
 
@@ -79,10 +97,10 @@ import "react-datepicker/dist/react-datepicker.css";
 			selected={this.state.start}
 			onChange={this.handleChange1}
 			showTimeSelect
-			showTimeSelectOnly
 			timeInterval={15}
 			timeCaption="Time"
-			dateFormat="h:mm aa"
+			timeFormat="HH:mm"
+			dateFormat="MMMM d, yyyy h:mm aa"
 			placeholderText="Start Time"
 		/>
 		<br />
@@ -90,10 +108,10 @@ import "react-datepicker/dist/react-datepicker.css";
 			selected={this.state.end}
 			onChange={this.handleChange2}
 			showTimeSelect
-			showTimeSelectOnly
 			timeInterval={15}
 			timeCaption="Time"
-			dateFormat="h:mm aa"
+			timeFormat="HH:mm"
+			dateFormat="MMMM d, yyyy h:mm aa"	
 			placeholderText="End Time"
 		/>
 		<form>
