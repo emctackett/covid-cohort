@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 import "react-datepicker/dist/react-datepicker.css";
  
   export default class DoubleButton extends React.Component {
-      constructor(props) {
-        super(props);
+    constructor(props) {
+    	super(props);
         this.handleItemClick = this.handleItemClick.bind(this);
-      };
+    };
       
-      handleItemClick(event: SyntheticEvent<any>, name: string): void {
+    handleItemClick(event: SyntheticEvent<any>, name: string): void {
         if (name === 'sign-in') {
-          ApiCalendar.handleAuthClick();
+        	ApiCalendar.handleAuthClick();
         } else if (name === 'sign-out') {
-          ApiCalendar.handleSignoutClick();
+          	ApiCalendar.handleSignoutClick();
         }
       }
 	state = {
@@ -114,6 +114,17 @@ import "react-datepicker/dist/react-datepicker.css";
 }
       
 
+    render(): ReactNode {
+        return (
+		<div>
+            <button onClick={(e) => this.handleItemClick(e, 'sign-in')}>
+                sign-in</button>
+            <button onClick={(e) => this.handleItemClick(e, 'sign-out')}>
+            	sign-out</button>
+		</div>
+        );
+    }
+}
 
 {/*
 import React from "react";

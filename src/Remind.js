@@ -3,14 +3,7 @@ import Navigation from "./Navbar";
 import SimpleFooter from "./Footer";
 import DoubleButton from "./RemindForm";
 
-import {
-  Anchor,
-  Heading,
-  Grommet,
-  Main,
-  Box,
-  Paragraph,
-} from "grommet";
+import {Heading, Grommet, Main, Box, Paragraph} from "grommet";
 import { grommet } from "grommet/themes";
 
 
@@ -20,49 +13,35 @@ const GridLayout = () => {
     <div>
       <Box background="light-2" gridArea="info" align="center">
         <Heading>Stay home, stay safe.</Heading>
-	
 	<br />	
-
 	<b><i> During these socially distant times, it is very 
 	 important to stay connected with friends and family. </i></b>
-	
-	<br />
-	<br />
+	<br /><br />
 
 	<Heading size="large" level="3" margin="none" color="#8F1701">
             How Can I Stay Connected?
-        </Heading>
-        <Box alignContent="start" width="xlarge">
-        <Paragraph
-          fill={true}
-          margin={{ left: "xlarge", right: "xlarge" }}
-          size="large"
-        >
+  </Heading>
+  <Box alignContent="start" width="xlarge">
+  <Paragraph
+    fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
 	{/* content here */}
 
 	</Paragraph>
 	</Box>
 	<Heading size="large" color="#8F1701" level="3" margin={{ bottom: "none" }}>
             Set Reminders
-        </Heading>
-    	<Box alignContent="start" width="xlarge">
-          <Paragraph
-            fill={true}
-            margin={{ left: "xlarge", right: "xlarge" }}
-            size="large"
-          >
+  </Heading>
+  <Box alignContent="start" width="xlarge">
+    <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
 
 	< DoubleButton />
 	{/* call API / reminder form here */}
 
 	 </Paragraph>
-	</Box>
-      </Box>
+	 </Box></Box>
     </div>
    );
 };
-
-
 
 const MainContent = () => (
   <Grommet theme={grommet}>
