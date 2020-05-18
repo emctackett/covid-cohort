@@ -63,7 +63,7 @@ const GridLayout = () => {
   const [globalPositives, setGlobalPositives] = useState(0);
 
   useEffect(() => {
-    fetch("http://covidtracking.com/api/us")
+    fetch("https://covidtracking.com/api/us")
       .then((response) => response.json())
       .then((data) => setUsPositives(data[0]["positive"]));
 
