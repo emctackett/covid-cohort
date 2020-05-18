@@ -21,7 +21,9 @@ import "react-datepicker/dist/react-datepicker.css";
 		startDate: new Date(),
 		start: new Date(),
 		end: new Date(),
-		description: ''
+		description: '',
+		startTime: new Date(),
+		endTime: new Date()
 	};
 
 	change = e => {
@@ -51,16 +53,35 @@ import "react-datepicker/dist/react-datepicker.css";
 			startDate: '',
 			start: '',
 			end: '',
-			description: ''
+			description: '',
+			startTime: '',
+			endTime: ''
 		})
+
+		this.state.startTime = new Date(this.state.startDate.getFullYear(),
+				  this.state.startDate.getMonth(),
+				  this.state.startDate.getDate(),
+				  this.state.start.getHours(),
+				  this.state.start.getMinutes(),
+				  this.state.start.getSeconds());
+
+
+		this.state.endTime = new Date(this.state.startDate.getFullYear(),
+				this.state.startDate.getMonth(),
+				this.state.startDate.getDate(),
+				this.state.end.getHours(),
+			        this.state.end.getMinutes(),
+				this.state.end.getSeconds());
+
+		console.log(this.state);
 
 		const event: object = {
 			'summary': this.state.description,
 			'start': {
-				'dateTime': this.state.start
+				'dateTime': this.state.startTime
 			},
 			'end': {
-				'dateTime': this.state.end
+				'dateTime': this.state.endTime
 			}
 		};
 
@@ -97,22 +118,22 @@ import "react-datepicker/dist/react-datepicker.css";
 			selected={this.state.start}
 			onChange={this.handleChange1}
 			showTimeSelect
+			showTimeSelectOnly
 			timeInterval={15}
 			timeCaption="Time"
-			timeFormat="HH:mm"
-			dateFormat="MMMM d, yyyy h:mm aa"
-			placeholderText="Start Time"
+			dateFormat="h:mm aa"
+			placeholderText="Click to select start time"
 		/>
 		<br />
 		<DatePicker
 			selected={this.state.end}
 			onChange={this.handleChange2}
 			showTimeSelect
+			showTimeSelectOnly
 			timeInterval={15}
 			timeCaption="Time"
-			timeFormat="HH:mm"
-			dateFormat="MMMM d, yyyy h:mm aa"	
-			placeholderText="End Time"
+			dateFormat="h:mm aa"	
+			placeholderText="Click to select end time"
 		/>
 		<form>
 		<input 
