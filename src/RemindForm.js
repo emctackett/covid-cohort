@@ -7,16 +7,10 @@ import "react-datepicker/dist/react-datepicker.css";
   export default class DoubleButton extends React.Component {
     constructor(props) {
     	super(props);
-        this.handleItemClick = this.handleItemClick.bind(this);
+		this.handleItemClick = this.handleItemClick.bind(this);
+		this.state = {isLoggedIn: false};
     };
-      
-    handleItemClick(event: SyntheticEvent<any>, name: string): void {
-        if (name === 'sign-in') {
-        	ApiCalendar.handleAuthClick();
-        } else if (name === 'sign-out') {
-          	ApiCalendar.handleSignoutClick();
-        }
-      }
+	
 	state = {
 		startDate: new Date(),
 		start: new Date(),
@@ -25,6 +19,19 @@ import "react-datepicker/dist/react-datepicker.css";
 		startTime: new Date(),
 		endTime: new Date()
 	};
+	
+    handleItemClick(event: SyntheticEvent<any>, name: string): void {
+        if (name === 'sign-in') {
+			ApiCalendar.handleAuthClick();
+			if(ApiCalendar.sign){
+				this.setState({isLoggedIn: true});
+			}
+        } else if (name === 'sign-out') {
+			  ApiCalendar.handleSignoutClick();
+			  this.setState({isLoggedIn: false});
+        }
+      }
+	
 
 	change = e => {
 		this.setState({
@@ -70,7 +77,7 @@ import "react-datepicker/dist/react-datepicker.css";
 				this.state.startDate.getMonth(),
 				this.state.startDate.getDate(),
 				this.state.end.getHours(),
-			        this.state.end.getMinutes(),
+			    this.state.end.getMinutes(),
 				this.state.end.getSeconds());
 
 		console.log(this.state);
@@ -86,7 +93,7 @@ import "react-datepicker/dist/react-datepicker.css";
 		};
 
 		ApiCalendar.createEvent(event, this.calendar)
-			.then((result:objet) => {
+			.then((result:object) => {
 				console.log(result);
 			})
 			.catch((error: any) => {
@@ -94,21 +101,23 @@ import "react-datepicker/dist/react-datepicker.css";
 			});
 	}
 
-
 	render() {
+		const isLoggedIn = this.state.isLoggedIn;
+		let submitButton, loginButton;
+		if(!isLoggedIn){
+			submitButton = <button disabled="true" onClick={e => this.onSubmit(e)}>Submit</button>;
+			loginButton = <button onClick={(e) => this.handleItemClick(e, 'sign-in')}>sign-in</button>
+		}
+		else{
+			submitButton = <button onClick={e => this.onSubmit(e)}>Submit</button>;
+			loginButton = <button onClick={(e) => this.handleItemClick(e, 'sign-out')}>sign-out</button>
+		}
 		return (
+			
 		<div>
-              <button
-                  onClick={(e) => this.handleItemClick(e, 'sign-in')}
-              >
-                sign-in
-              </button>
-              <button
-                  onClick={(e) => this.handleItemClick(e, 'sign-out')}
-              >
-                sign-out
-              </button>
-		<br />	
+        {loginButton}
+		<br />
+
 		<DatePicker
 			selected={this.state.startDate}
 			onChange={this.handleChange}
@@ -143,9 +152,7 @@ import "react-datepicker/dist/react-datepicker.css";
 		 onChange={e => this.change(e)}
 		/>
 		<br />
-		<button onClick={e => this.onSubmit(e)}>Submit</button>
-
-
+		{submitButton}
 		</form>  
 		</div>
 	);
