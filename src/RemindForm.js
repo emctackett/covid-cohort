@@ -3,8 +3,9 @@ import ApiCalendar from 'react-google-calendar-api';
 import DatePicker from "react-datepicker";
 import PropTypes from 'prop-types';
 import "react-datepicker/dist/react-datepicker.css";
- 
-  export default class DoubleButton extends React.Component {
+
+
+ export default class DoubleButton extends React.Component {
     constructor(props) {
     	super(props);
 		this.handleItemClick = this.handleItemClick.bind(this);
@@ -115,12 +116,12 @@ import "react-datepicker/dist/react-datepicker.css";
 		return (
 			
 		<div>
-        {loginButton}
+	        {loginButton}
 		<br />
-
 		<DatePicker
 			selected={this.state.startDate}
 			onChange={this.handleChange}
+			placeholderText="Date"
 		/>
 		<br />
 		<DatePicker
@@ -144,17 +145,19 @@ import "react-datepicker/dist/react-datepicker.css";
 			dateFormat="h:mm aa"	
 			placeholderText="Click to select end time"
 		/>
+		<br />
 		<form>
 		<input 
 		 name="description"
-		 placeholder='Description: Who do you want to keep in contact with?' 
+		 placeholder='Who do you want to keep in contact with?' 
 		 value={this.state.description}
 		 onChange={e => this.change(e)}
 		/>
 		<br />
 		{submitButton}
-		</form>  
-		</div>
+		</form>
+		</div>  
+
 	);
 	}
 }
