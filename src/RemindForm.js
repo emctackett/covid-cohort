@@ -89,7 +89,7 @@ TO DO: Implement google hangouts  */}
 		console.log(this.state);
 
 		const event: object = {
-			'summary': 'Call or text' + this.state.description,
+			'summary': 'Call or text ' + this.state.description,
 			'description': 'Ask your friends and family how they are doing or tell them how you are doing. Call or text' + this.state.description,
 			'start': {
 				'dateTime': this.state.startTime
@@ -156,7 +156,7 @@ TO DO: Implement google hangouts  */}
 		<form>
 		<input 
 		 name="description"
-		 placeholder='Description: Who do you want to keep in contact with?' 
+		 placeholder='Who do you want to keep in contact with?' 
 		 value={this.state.description}
 		 onChange={e => this.change(e)}
 		/>
