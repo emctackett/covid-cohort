@@ -4,8 +4,10 @@ import DatePicker from "react-datepicker";
 import PropTypes from 'prop-types';
 import "react-datepicker/dist/react-datepicker.css";
 
-
- export default class DoubleButton extends React.Component {
+{/*TO DO: Fix submit button and sign-in button change.
+TO DO: Implement recurrences, recurrence variables added still need form
+TO DO: Implement google hangouts  */}
+  export default class DoubleButton extends React.Component {
     constructor(props) {
     	super(props);
 		this.handleItemClick = this.handleItemClick.bind(this);
@@ -18,22 +20,22 @@ import "react-datepicker/dist/react-datepicker.css";
 		end: new Date(),
 		description: '',
 		startTime: new Date(),
-		endTime: new Date()
+		endTime: new Date(),
+		frequency: '',
+		count: '',
+		interval: ''
 	};
 	
     handleItemClick(event: SyntheticEvent<any>, name: string): void {
         if (name === 'sign-in') {
 			ApiCalendar.handleAuthClick();
-			if(ApiCalendar.sign){
-				this.setState({isLoggedIn: true});
-			}
+			this.setState({isLoggedIn: true});
         } else if (name === 'sign-out') {
 			  ApiCalendar.handleSignoutClick();
 			  this.setState({isLoggedIn: false});
         }
       }
 	
-
 	change = e => {
 		this.setState({
 		[e.target.name]: e.target.value
@@ -63,7 +65,10 @@ import "react-datepicker/dist/react-datepicker.css";
 			end: '',
 			description: '',
 			startTime: '',
-			endTime: ''
+			endTime: '',
+			frequency: '',
+			count: '',
+			interval: ''
 		})
 
 		this.state.startTime = new Date(this.state.startDate.getFullYear(),
@@ -84,13 +89,15 @@ import "react-datepicker/dist/react-datepicker.css";
 		console.log(this.state);
 
 		const event: object = {
-			'summary': this.state.description,
+			'summary': 'Call or text' + this.state.description,
+			'description': 'Ask your friends and family how they are doing or tell them how you are doing. Call or text' + this.state.description,
 			'start': {
 				'dateTime': this.state.startTime
 			},
 			'end': {
 				'dateTime': this.state.endTime
-			}
+			},
+			'recurrence': 'RRULE:FREQ=' + this.state.frequency + 'INTERVAL=' + this.state.interval + 'COUNT=' + this.state.count,
 		};
 
 		ApiCalendar.createEvent(event, this.calendar)
@@ -116,8 +123,9 @@ import "react-datepicker/dist/react-datepicker.css";
 		return (
 			
 		<div>
-	        {loginButton}
+        {loginButton}
 		<br />
+
 		<DatePicker
 			selected={this.state.startDate}
 			onChange={this.handleChange}
@@ -145,19 +153,17 @@ import "react-datepicker/dist/react-datepicker.css";
 			dateFormat="h:mm aa"	
 			placeholderText="Click to select end time"
 		/>
-		<br />
 		<form>
 		<input 
 		 name="description"
-		 placeholder='Who do you want to keep in contact with?' 
+		 placeholder='Description: Who do you want to keep in contact with?' 
 		 value={this.state.description}
 		 onChange={e => this.change(e)}
 		/>
 		<br />
 		{submitButton}
-		</form>
-		</div>  
-
+		</form>  
+		</div>
 	);
 	}
 }
