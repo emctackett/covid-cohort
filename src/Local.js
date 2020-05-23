@@ -29,7 +29,7 @@ const Location = () => {
         size="small"
         color="#8F1701"
         type="button"
-        primary="true"
+        primary={true}
         label="Search"
         margin="small"
         icon={<Search />}

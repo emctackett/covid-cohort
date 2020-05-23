@@ -4,13 +4,13 @@ import { Heading, Paragraph } from "grommet";
 import guidelines from "./StateGuideline";
 
 const clientKey =
-  "EyIxMVuESlLENffWT3GfNGh5CyjUW04eanXAST44y4BEaxSm5q4hf4frdGJqjWLd";
+  "js-U3pNGi8tqCc1UHpbkCCSts7uesec7I4pU1IVTqO4dhxoNkFG8IOHWB0NjykTt5sD";
 
 const LocaleAPI = ({ query }) => {
   const [isLoaded, setLoaded] = useState(false);
   const [locale, setLocale] = useState();
 
-  useEffect((props) => {
+  useEffect(() => {
     async function fetchData() {
       try {
         setLoaded(false);
@@ -28,7 +28,7 @@ const LocaleAPI = ({ query }) => {
   });
   console.log(locale);
 
-  //const link = guidelines[locale.state];
+  const link = guidelines[locale.state];
 
   return (
     <div>
@@ -38,7 +38,7 @@ const LocaleAPI = ({ query }) => {
             You are located in {locale.state}.
           </Heading>
           <Paragraph fill={true} size="large" textAlign="center">
-            You can find your state guidelines here: .
+            You can find your state guidelines here: {link}.
           </Paragraph>
         </div>
       ) : (
