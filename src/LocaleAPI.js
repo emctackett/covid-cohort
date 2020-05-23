@@ -22,7 +22,7 @@ const LocaleAPI = ({ query }) => {
       try {
         setLoaded(false);
         console.log(query);
-        const requestUrl = `http://api.zippopotam.us/us/${query}`;
+        const requestUrl = `https://api.zippopotam.us/us/${query}`;
         const res = await axios.get(requestUrl);
         console.log(res.data.places[0].state);
         setLocale(res.data.places[0].state);
