@@ -28,7 +28,8 @@ const LocaleAPI = ({ query }) => {
   });
   console.log(locale);
 
-  const link = guidelines[locale.state];
+  //const link = guidelines[locale.state];
+  const link = "sample";
 
   return (
     <div>
