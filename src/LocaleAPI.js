@@ -6,6 +6,16 @@ import guidelines from "./StateGuideline";
 const LocaleAPI = ({ query }) => {
   const [isLoaded, setLoaded] = useState(false);
   const [locale, setLocale] = useState();
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState();
+
+  function renderConditional() {
+    if (isError === true) {
+      return <span>An error was encountered... Please try again!</span>;
+    } else {
+      return <span>Loading...</span>;
+    }
+  }
 
   useEffect(() => {
     async function fetchData() {
@@ -18,6 +28,7 @@ const LocaleAPI = ({ query }) => {
         setLocale(res.data.places[0].state);
         setLoaded(true);
       } catch (err) {
+        setIsError(true);
         console.log(err);
       }
     }
@@ -39,7 +50,7 @@ const LocaleAPI = ({ query }) => {
           </Paragraph>
         </div>
       ) : (
-        <span> Loading...</span>
+        renderConditional()
       )}
     </div>
   );
