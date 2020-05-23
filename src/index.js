@@ -7,6 +7,7 @@ import Data from "./Data";
 import Avoid from "./Avoid";
 import Safety from "./Safety";
 import Remind from "./Remind";
+import Help from "./Help";
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
@@ -18,6 +19,7 @@ const routing = (
       <Route exact path="/avoid" component={Avoid} />
       <Route path="/safety" component={Safety} />
       <Route path="/remind" component={Remind} />
+      <Route path="/help" component={Help} />
     </div>
   </Router>
 );
