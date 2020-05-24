@@ -1,10 +1,27 @@
 # CS361 - COVIDCoach
 This is a project built for Oregon State University's CS361 course - Software Engineering I.
 
-There are three primary goals for COVIDCoach
-(1) help people avoid catching the virus,
-(2) help people learn about the virus, and
-(3) help people stay connected and in touch with others. 
+There are three primary goals for COVIDCoach:
+* help people avoid catching the virus,
+* help people learn about the virus, and
+* help people stay connected and in touch with others.  
+
+Avoiding COVID-19: The application provides basic information regarding transmission and spread of COVID-19. Users can learn about what symptoms of COVID-19 look like, and prevention methods that they can take. There is a brief description of social distancing and how to best distance yourself from others. 
+
+Learning about COVID-19: COVIDCoach is a non-biased, data-driven source where users can learn more about the COVID-19 pandemic. The data includes both a global overview of COVID-19 cases and a breakdown of COVID-19 cases by state in the United States. 
+
+Stay connected: The "remind" tab of COVIDCoach integrates with your Google account and Google Calendar to create a reminder for your calendar. You can set the reminder for any day and time, and hitting submit will forward the event onto your calendar for future reference. 
+
+There is also a help page on the site describing basic information regarding COVIDCoach. 
+
+The site was built with these quality attributes in mind:
+* Accessibility:
+We want to have users of all ages that are able to easily access our application and understand the information on our page. Because older citizens are also more at risk, we want information to be easily digestible, easily usable, and recognizable. 
+* Credibility:
+COVID-19 is a pandemic and dominating global news. With that comes a lot of misinformation regarding the virus, how the virus is spread, and prevention methods. We want to choose non-biased, professional medical sources to highlight and deem relevant. 
+* Localizability:
+The recommendations and official guidelines on what is allowed varies widely from state to state. By having localizability, it allows for users to obtain more relevant and correct information at all times. 
+
 
 ## Built With
 * [React](https://reactjs.org/)
@@ -51,7 +68,6 @@ Both npm and yarn will open COVIDCoach at [http://localhost:3000](http://localho
 
 To end the program, go back to the terminal and press `ctrl` + `c`, where the program will confirm that you want to terminate the job.
 
-
 ## React App Info
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,11 +84,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `yarn build`
 
 Builds the app for production to the `build` folder.<br />
@@ -83,42 +94,34 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Software Architecture
+![Architecture for COVIDCoach](/public/architecture.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Design Patterns
+Our team implemented the Facade design pattern, intended to create an interface for working with the Google Calendar API by grouping methods together (thus reducing redundant code). You may view the implementation of the pattern in [RemindForm.js](https://github.com/emctackett/covid-cohort/blob/master/src/RemindForm.js), which is exported as DoubleButton in the [Remind.js](https://github.com/emctackett/covid-cohort/blob/master/src/Remind.js) file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Final State of COVIDCoach
+Here is a list of known issues with COVIDCoach: 
+- [ ] Placeholder
 
-## Learn More
+Product backlog: 
+- [ ] Placeholder
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Areas for development: 
+- [ ] Expanding data to be more global and more informative (deaths, recovered, etc.)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## File Structure
+The highest level includes the package.json which provides scripts to run the program and the package-lock.json which provides the project dependencies and necessary installations. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+The public folder holds the basic outline for the site (index.html) and our favicon. 
 
-### Analyzing the Bundle Size
+The src folder contains all of the JavaScript files involved in building the components of our project. The file, index.js, performs the routing for the site. Every other file is appropriately named for the component that they are involved in building.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+## Contributing
+There will be no particular keeper of the project. Contact the owner of the repository (@emctackett) if you are interested in contributing or supporting COVIDCoach in some manner. For the original developers, we may continue to infrequently update COVIDCoach if requested or necessary through our original workflow (branch then pull request if the repository is still active, else just merge the branch directly onto master once the changes have been tested).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If you are externally interested in contributing to the project, feel free to fork the project directory from master. When you have a change that you are interested in merging, submit a pull request so that your changes may be reviewed. 
