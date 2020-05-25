@@ -28,30 +28,32 @@ const GridLayout = () => {
         </Box>
         <Box alignContent="start" width="xlarge" pad={{ left: "large", right: "large" }} alignSelf="center">
           <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-          ‣	Fever
-          <br />
-          <br />
-          ‣	Cough
-          <br />
-          <br />
-          ‣	Shortness of breath
-          <br />
-          <br />
-          ‣	Chills
-          <br />
-          <br />
-          ‣	Muscle pain
-          <br />
-          <br />
-          ‣	Headache
-          <br />
-          <br />
-          ‣	Sore throat
-          <br />
-          <br />
-          ‣	Sudden loss of taste or smell
-          <br />
-          <br />
+            <ul class="wide-spaced-list arrow-list">
+              <li>
+                Fever
+              </li>
+              <li>
+                Cough
+              </li>
+              <li>
+                Shortness of breath
+              </li>
+              <li>
+                Chills
+              </li>
+              <li>
+                Muscle pain
+              </li>
+              <li>
+                Headache
+              </li>
+              <li>
+                Sore throat
+              </li>
+              <li>
+                Sudden loss of taste or smell
+              </li>
+            </ul>
           </Paragraph>
         </Box>
         <Heading size="large" color="#8F1701" level="3" margin={{ bottom: "none" }}>
@@ -64,44 +66,46 @@ const GridLayout = () => {
             <Anchor href="https://www.cdc.gov/coronavirus" color="#000000">
               CDC
             </Anchor>
-            {" "}, most people will be able to recover from COVID-19 at home.  Follow the below guidelines if you experience symptoms.
+            , most people will be able to recover from COVID-19 at home. Follow the below guidelines if you experience symptoms.
           </Paragraph>
         </Box>
         <Box alignContent="start" width="xlarge" pad={{ left: "large", right: "large" }} alignSelf="center">
         <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-              ‣	Stay at home if you are sick. Leave your home only to seek medical attention, if necessary.
-              <br />
-              <br />
-              ‣	Avoid public transportation.
-              <br />
-              <br />
-              ‣	Wear a face covering if you  must leave your home.
-              <br />
-              <br />
-              ‣	Separate yourself from other people and pets that live within your home.
-              <br />
-              <br />
-              ‣	Cover coughs and sneezes.
-              <br />
-              <br />
-              ‣	Wash your hands often.
-              <br />
-              <br />
-              ‣	Do not share personal household items.
-              <br />
-              <br />
-              ‣	Monitor and track your symptoms.
-              <br />
-              <br />
-              ‣	Stay hydrated.
-              <br />
-              <br />
-              ‣	Sanitize frequently touched surfaces in your home daily.
-              <br />
-              <br />
-              ‣	If you need medical attention, call ahead.
-              <br />
-              <br />
+            <ul class="wide-spaced-list arrow-list">
+              <li>
+                Stay at home if you are sick; leave your home only to seek medical attention, if necessary
+              </li>
+              <li>
+                Avoid public transportation
+              </li>
+              <li>
+                Wear a face covering if you must leave your home
+              </li>
+              <li>
+                Separate yourself from other people and pets that live within your home
+              </li>
+              <li>
+                Cover coughs and sneezes
+              </li>
+              <li>
+                Wash your hands often
+              </li>
+              <li>
+                Do not share personal household items
+              </li>
+              <li>
+                Monitor and track your symptoms
+              </li>
+              <li>
+                Stay hydrated
+              </li>
+              <li>
+                Sanitize frequently touched surfaces in your home daily
+              </li>
+              <li>
+                If you need medical attention, call ahead
+              </li>
+            </ul>
           </Paragraph>
         </Box>
         <Heading size="large" color="#8F1701" level="3" margin={{ bottom: "none" }}>
@@ -118,21 +122,25 @@ const GridLayout = () => {
         </Box>
         <Box alignContent="start" width="xlarge" pad={{ left: "large", right: "large" }} alignSelf="center">
         <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-            ‣	Trouble breathing
-            <br />
-            <br />
-            ‣	Persistent pain or pressure in the chest
-            <br />
-            <br />
-            ‣	Confusion or lethargy
-            <br />
-            <br />
-            ‣	Bluish lips or face
-            <br />
-            <br />
-            ‣	<b>Call 911 if you are having a medical emergency</b>
-            <br />
-            <br />
+            <ul class="wide-spaced-list arrow-list">
+              <li>
+                Trouble breathing
+              </li>
+              <li>
+                Persistent pain or pressure in the chest
+              </li>
+              <li>
+                Confusion or lethargy
+              </li>
+              <li>
+                Bluish lips or face
+              </li>
+              <li>
+                <strong>
+                  Call 911 if you are having a medical emergency
+                </strong>
+              </li>
+            </ul>
           </Paragraph>
         </Box>
         <Box justify="center" pad="large" align="center">

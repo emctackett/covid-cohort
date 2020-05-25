@@ -28,6 +28,18 @@
   display: none;
 }
 
-.wide-spaced-list > li {
+ul.wide-spaced-list > li {
   margin-top: 1.5em;
+}
+
+ul.arrow-list {
+  position: relative;
+  list-style: none;
+}
+
+
+ul.arrow-list > li::before {
+  content: '🠶';
+  position: absolute;
+  left: 0;
 }
