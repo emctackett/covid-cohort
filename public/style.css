@@ -27,3 +27,7 @@
 .tag-container {
   display: none;
 }
+
+.wide-spaced-list > li {
+  margin-top: 1.5em;
+}
