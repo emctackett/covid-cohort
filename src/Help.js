@@ -10,6 +10,7 @@ const GridLayout = () => {
     <div>
       <Box background="light-2" gridArea="info" align="center">
         <Heading margin={{ bottom: "large" }}>Stay home, stay safe.</Heading>{" "}
+        <br />
         <Heading size="large" level="3" margin="none" color="#8F1701">
           What is COVIDCoach?
         </Heading>
@@ -18,6 +19,7 @@ const GridLayout = () => {
           width="xlarge"
           pad={{ left: "large", right: "large" }}
           alignSelf="center"
+          margin={{ bottom: "large" }}
         >
           <Paragraph
             fill={true}
@@ -37,6 +39,7 @@ const GridLayout = () => {
           width="xlarge"
           pad={{ left: "large", right: "large" }}
           alignSelf="center"
+          margin={{ bottom: "large" }}
         >
           <Paragraph
             fill={true}
@@ -55,6 +58,7 @@ const GridLayout = () => {
           width="xlarge"
           pad={{ left: "large", right: "large" }}
           alignSelf="center"
+          margin={{ bottom: "large" }}
         >
           <Paragraph
             fill={true}
@@ -76,6 +80,7 @@ const GridLayout = () => {
           width="xlarge"
           pad={{ left: "large", right: "large" }}
           alignSelf="center"
+          margin={{ bottom: "large" }}
         >
           <Paragraph
             fill={true}
