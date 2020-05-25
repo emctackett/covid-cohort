@@ -10,7 +10,7 @@ const GridLayout = () => {
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
-        <Heading>Stay home, stay safe.</Heading>
+        <Heading margin={{ bottom: "large" }}>Stay home, stay safe.</Heading>{" "}
         <Box alignContent="start" width="xlarge">
           <Paragraph
             fill={true}

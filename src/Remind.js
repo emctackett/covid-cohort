@@ -12,7 +12,7 @@ const GridLayout = () => {
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
-        <Heading>Stay home, stay safe.</Heading>
+        <Heading margin={{ bottom: "large" }}>Stay home, stay safe.</Heading>{" "}
 	<br />	
 	<b><i> During these socially distant times, it is very 
 	 important to stay connected with friends and family. </i></b>

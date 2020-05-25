@@ -15,7 +15,7 @@ const MainContent = () => (
   <Grommet theme={grommet}>
     <Main pad="small" top="small">
       <Box background="light-2" gridArea="info" align="center">
-      <Heading>Stay home, stay safe.</Heading>
+      <Heading margin={{ bottom: "large" }}>Stay home, stay safe.</Heading>{" "}
       <UserQuiz />
       </Box>
     </Main>
