@@ -18,14 +18,12 @@ const GridLayout = () => {
             size="large"
             color="#8F1701"
           >
-            <b>
-              "COVID-19 is thought to spread mainly through close contact from
+            <blockquote>
+              <p>"COVID-19 is thought to spread mainly through close contact from
               person-to-person in respiratory droplets from someone who is
-              infected."
-              <br />
-              <br />
-              -CDC{" "}
-            </b>
+              infected."</p>
+              <footer>-CDC</footer>
+            </blockquote>
             <br />
           </Paragraph>
         </Box>
@@ -42,18 +40,18 @@ const GridLayout = () => {
               href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html"
               color="#000000"
             >
-              According to the Centers for Disease Control and Prevention,{" "}
+              According to the Centers for Disease Control and Prevention
             </Anchor>
-            the following are some guidelines you can follow to avoid
+            , the following are some guidelines you can follow to avoid
             contracting COVID-19
           </Paragraph>
         </Box>
-        <b>
-          <i>
+        <strong>
+          <em>
             It is important to note that one can have COVID-19, be contagious,
             and feel no symptoms.
-          </i>
-        </b>
+          </em>
+        </strong>
         <Box alignContent="start" width="xlarge">
           <Paragraph
             fill={true}
@@ -61,12 +59,11 @@ const GridLayout = () => {
             size="medium"
           >
             <br />•{" "}
-            <b>
+            <strong>
               {" "}
               The best way to prevent getting COVD-19 is to avoid being exposed
               to the virus.
-            </b>
-            <br /> In other words, stay home and stay safe.
+            </strong> In other words, stay home and stay safe.
             <br />
             <br />
             • Wash your hands often with soap and water for at least 20 seconds.
