@@ -62,29 +62,29 @@ const GridLayout = () => {
               <li>
                 <strong>
                   The best way to prevent getting COVD-19 is to avoid being exposed
-                  to the virus.
-                </strong> In other words, stay home and stay safe.
+                  to the virus;
+                </strong> in other words, stay home and stay safe.
               </li>
               <li>
-                Wash your hands often with soap and water for at least 20 seconds.
+                Wash your hands often with soap and water for at least 20 seconds
               </li>
               <li>
-                If you do not have access to soap and water, use a hand sanitizer that contains at least 60% alcohol.
+                If you do not have access to soap and water, use a hand sanitizer that contains at least 60% alcohol
               </li>
               <li>
-                Avoid touching your face, especially your eyes, nose, and mouth, with unwashed hands.
+                Avoid touching your face, especially your eyes, nose, and mouth, with unwashed hands
               </li>
               <li>
-                Avoid close contact with people who are sick.
+                Avoid close contact with people who are sick
               </li>
               <li>
-                Keep distance from others.
+                Keep distance from others
               </li>
               <li>
-                Cover you mouth and nose with a face cover / mask when around others.
+                Cover you mouth and nose with a face cover / mask when around others
               </li>
               <li>
-                Clean and disinfect frequently touched surfaces daily.
+                Clean and disinfect frequently touched surfaces daily
               </li>
             </ul>
           </Paragraph>
@@ -122,16 +122,16 @@ const GridLayout = () => {
           >
             <ul class="wide-spaced-list">
               <li>
-                Stay at least 6 feet from other people.
+                Stay at least 6 feet from other people
               </li>
               <li>
-                Do not gather in groups.
+                Do not gather in groups
               </li>
               <li>
-                Stay out of crowded places and avoid mass gatherings.
+                Stay out of crowded places and avoid mass gatherings
               </li>
               <li>
-                Stay home when possible.
+                Stay home when possible
               </li>
             </ul>
           </Paragraph>
