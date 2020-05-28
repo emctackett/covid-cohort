@@ -58,7 +58,7 @@ export default function UserQuiz() {
           >
             If you are unsure whether or not you should feel comfortable leaving
             your home, take our "Should I Go Out?" quiz by clicking below, and
-            recieve a recommendation based on CDC guidelines. If you do choose
+            receive a recommendation based on CDC guidelines. If you do choose
             to leave your house, make sure to use precautions such as wearing a
             cloth face mask and implementing social distancing measures.
             <br />
