@@ -61,9 +61,9 @@ const GridLayout = () => {
             <ul class="wide-spaced-list">
               <li>
                 <strong>
-                  The best way to prevent getting COVD-19 is to avoid being exposed
+                  The best way to prevent getting COVID-19 is to avoid being exposed
                   to the virus;
-                </strong> in other words, stay home and stay safe.
+                </strong> in other words, stay home and stay safe
               </li>
               <li>
                 Wash your hands often with soap and water for at least 20 seconds
