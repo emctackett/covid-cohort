@@ -2,8 +2,9 @@ import React from "react";
 import Quiz from "react-quiz-component";
 import quiz from "./quizContent";
 import Location from "./Local";
+import StartOver from "./StartOver";
 
-import { Heading, Box, Paragraph } from "grommet";
+import { Heading, Box, Paragraph} from "grommet";
 
 const renderCustomResultPage = (obj) => {
   if (obj.totalPoints === obj.correctPoints) {
@@ -67,11 +68,14 @@ export default function UserQuiz() {
             home and contact your physician.
           </Paragraph>
         </Box>
+        <Box>
         <Quiz
           quiz={quiz}
           showDefaultResult={false}
           customResultPage={renderCustomResultPage}
         />
+        <StartOver />
+        </Box>
       </Box>
     </div>
   );

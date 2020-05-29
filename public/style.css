@@ -27,3 +27,16 @@
 .tag-container {
   display: none;
 }
+
+button.StyledButton-sc-323bzc-0 {
+  vertical-align: -30%;
+}
+
+
+.start-over > Button {
+  border-radius: 0;
+  background-color: #fff;
+  border: 1px solid #D9D9D9;
+  color: #606060;
+  font-weight: normal;
+}
