@@ -77,7 +77,7 @@ const GridLayout = () => {
       <Box background="light-2" gridArea="info" align="center">
         <Heading margin={{ bottom: "large" }}>Stay home, stay safe.</Heading>{" "}
         <Heading size="small" margin={{ bottom: "small" }}> As of {today}, there are</Heading>
-        <Heading size="large" color="#8F1701" margin={{ bottom: "small" }}>
+        <Heading size="xlarge" color="#8F1701" margin={{ bottom: "small" }}>
           {formatNumber(globalPositives)}
         </Heading>
         <br />
