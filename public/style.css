@@ -37,9 +37,12 @@ ul.arrow-list {
   list-style: none;
 }
 
-
 ul.arrow-list > li::before {
   content: '🠶';
   position: absolute;
   left: 0;
+}
+
+input.remind-date-picker {
+  margin: 0.3em;
 }
