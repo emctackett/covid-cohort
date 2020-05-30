@@ -45,7 +45,9 @@ export default function UserQuiz() {
         align="center"
         margin={{ bottom: "large" }}
       >
-        <Location />
+        <Box margin={{ bottom: "large" }} width="xlarge">
+          <Location />
+        </Box>
         <Heading size="medium" color="#8F1701" margin={{ bottom: "small" }}>
           Should I Go Out?
         </Heading>
@@ -54,15 +56,18 @@ export default function UserQuiz() {
             fill={true}
             margin={{ left: "xlarge", right: "xlarge" }}
             size="large"
-            textAlign="center"
           >
             If you are unsure whether or not you should feel comfortable leaving
             your home, take our "Should I Go Out?" quiz by clicking below, and
             receive a recommendation based on CDC guidelines. If you do choose
             to leave your house, make sure to use precautions such as wearing a
             cloth face mask and implementing social distancing measures.
-            <br />
-            <br />
+          </Paragraph>
+          <Paragraph
+            fill={true}
+            margin={{ left: "xlarge", right: "xlarge" }}
+            size="large"
+          >
             If you believe you could be sick with COVID-19 symptoms, please stay
             home and contact your physician.
           </Paragraph>
