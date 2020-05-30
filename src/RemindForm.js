@@ -2,11 +2,12 @@ import React, { ReactNode, SyntheticEvent } from "react";
 import ApiCalendar from "react-google-calendar-api";
 import DatePicker from "react-datepicker";
 import PropTypes from "prop-types";
-import { Button } from "grommet";
+import { Button, Paragraph } from "grommet";
 import "react-datepicker/dist/react-datepicker.css";
 
 /*TO DO: Fix submit button and sign-in button change.
 TO DO: Implement recurrences, recurrence variables added still need form
+TO DO: Attendees
 TO DO: Implement google hangouts  */
 
 export default class DoubleButton extends React.Component {
@@ -14,6 +15,10 @@ export default class DoubleButton extends React.Component {
     super(props);
     this.handleItemClick = this.handleItemClick.bind(this);
     this.state = { isLoggedIn: false };
+    this.state = { frequency: "DAILY" };
+    this.state = { count: 1 };
+    this.state = { interval: 1 };
+    this.state = { timeZone: "America/Los_Angeles" };
   }
 
   state = {
@@ -26,6 +31,7 @@ export default class DoubleButton extends React.Component {
     frequency: "",
     count: "",
     interval: "",
+    timeZone: ""
   };
 
   handleItemClick(event: SyntheticEvent<any>, name: string): void {
@@ -59,6 +65,12 @@ export default class DoubleButton extends React.Component {
       end: en,
     });
   };
+
+  handleInputChange = (inp) => {
+    this.setState({[inp.target.name]: inp.target.value})
+  };
+  
+  
   onSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
@@ -70,8 +82,9 @@ export default class DoubleButton extends React.Component {
       startTime: "",
       endTime: "",
       frequency: "",
-      count: "",
       interval: "",
+      timeZone: "",
+      count: ""
     });
 
     this.state.startTime = new Date(
@@ -92,28 +105,24 @@ export default class DoubleButton extends React.Component {
       this.state.end.getSeconds()
     );
 
-    console.log(this.state);
 
     const event: object = {
-      summary: "Call or text " + this.state.description,
-      description:
-        "Ask your friends and family how they are doing or tell them how you are doing. Call or text" +
-        this.state.description,
+      summary: "Catch up with friends and family",
+      description: "Ask your friends and family how they are doing or tell them how you are doing. Call or text " + this.state.description,
       start: {
         dateTime: this.state.startTime,
+        timeZone: this.state.timeZone
       },
       end: {
         dateTime: this.state.endTime,
+        timeZone: this.state.timeZone
       },
-      recurrence:
-        "RRULE:FREQ=" +
-        this.state.frequency +
-        "INTERVAL=" +
-        this.state.interval +
-        "COUNT=" +
-        this.state.count,
+      recurrence: [
+          "RRULE:FREQ=" + this.state.frequency +
+          ";INTERVAL=" + this.state.interval +
+          ";COUNT=" + this.state.count ],
     };
-
+    
     ApiCalendar.createEvent(event, this.calendar)
       .then((result: object) => {
         console.log(result);
@@ -121,6 +130,8 @@ export default class DoubleButton extends React.Component {
       .catch((error: any) => {
         console.log(error);
       });
+    
+    console.log(event);
   };
 
   render() {
@@ -200,6 +211,22 @@ export default class DoubleButton extends React.Component {
           />
         </div>
         <form>
+        <Paragraph
+            fill={true}
+            margin={{ left: "xlarge", right: "xlarge" }}
+           size="medium"
+           textAlign="center"
+          >
+            Time Zone:{" "}
+          <select name="timeZone" value={this.state.timeZone} onChange={this.handleInputChange}>
+            <option value="America/Anchorage">Alaska</option>
+            <option selected value="America/Los_Angeles">Pacific</option>
+            <option value="America/Chicago">Central</option>
+            <option value="America/Denver">Mountain</option>
+            <option value="America/New_York">Eastern</option>
+            <option value="Pacific/Honolulu">Hawaii</option>
+          </select>
+        </Paragraph>
           <input
             name="description"
             placeholder="Who do you want to keep in contact with?"
@@ -208,6 +235,25 @@ export default class DoubleButton extends React.Component {
             style={{ width: "600px", height: "40px" }}
           />
           <br />
+          <Paragraph
+            fill={true}
+            margin={{ left: "xlarge", right: "xlarge" }}
+           size="medium"
+           textAlign="center"
+          >
+            Repeat every{" "}
+            <input required type="number" name="interval" min="1" max="100" placeholder="number" value={this.state.interval} onChange={this.handleInputChange}/>
+            <select required name="frequency" value={this.state.frequency} onChange={this.handleInputChange}>
+              <option value="" disabled selected>Select</option>
+              <option value="DAILY">Days</option>
+              <option value="WEEKLY">Weeks</option>
+            </select>
+            {" "} and end after {" "}
+            <input required type="number" name="count" min="1" max="100" placeholder="number" value={this.state.count} onChange={this.handleInputChange}/>
+            {" "}occurrences
+            </Paragraph>
+            
+            
           {submitButton}
         </form>
       </div>
