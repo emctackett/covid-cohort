@@ -38,7 +38,8 @@ ul.arrow-list {
 }
 
 ul.arrow-list > li::before {
-  content: '🠶';
+  content: '⯈';
+  font-size: 0.7em;
   position: absolute;
   left: 0;
 }
