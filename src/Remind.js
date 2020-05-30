@@ -29,13 +29,14 @@ const GridLayout = () => {
           <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
             <ul class="wide-spaced-list">
               <li>
-                Remember to call friends / family often to catch up and stay connected
+                Remember to call friends and family often to catch up and stay connected
               </li>
               <li>
-                Social Media is a great way to stay connected with friends and family
+                Social media is a great way to stay connected with friends and family
               </li>
               <li>
-                Zoom / Facetime and or other video chat platforms are a fantastic way to have face to face time with friends and family
+                Zoom, Facetime and other video chat platforms are fantastic ways to have
+                face-to-face time with friends and family
               </li>
             </ul>
           </Paragraph>
@@ -44,18 +45,21 @@ const GridLayout = () => {
           Set Reminders in Your Google Calendar
         </Heading>
         <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-          You can create reminders in your Google Calendar by signing into your Google account below.
+          You can create reminders in your Google Calendar by signing into your
+          Google account below.
         </Paragraph>
         <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="medium">
           <strong>
             <em>
-              First sign in to your Google Account by using the Sign-In button. Then, fill out the form and
+              First sign in to your Google Account by using the Sign-In button. Then,
+              fill out the form and
               <br/>
-              press the submit button. Your reminder will automatically be added to your Google Calendar.
+              press the submit button. Your reminder will automatically be added to
+              your Google Calendar.
             </em>
           </strong>
         </Paragraph>
-        < DoubleButton />
+        <DoubleButton />
       </Box>
     </div>
   );
