@@ -1,3 +1,7 @@
+/**Sligth modification to add conference data
+ * Original: react-google-calendar-api
+ * Link: https://github.com/Kubessandra/react-google-calendar-api#readme
+ */
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
