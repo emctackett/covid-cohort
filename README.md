@@ -95,7 +95,9 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Software Architecture
-![Architecture for COVIDCoach](/public/architecture.jpg)
+![Architecture for COVIDCoach](/public/architecture.png)
+
+![Component Diagram for COVIDCoach](/public/component.png)
 
 
 ## Design Patterns
