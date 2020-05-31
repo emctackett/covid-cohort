@@ -1,12 +1,11 @@
 import React, { ReactNode, SyntheticEvent } from "react";
-import ApiCalendar from "react-google-calendar-api";
+import ApiCalendar from "./GoogleCalendar.js";
 import DatePicker from "react-datepicker";
 import PropTypes from "prop-types";
 import { Button, Paragraph } from "grommet";
 import "react-datepicker/dist/react-datepicker.css";
 
-/*TO DO: Fix submit button and sign-in button change.
-TO DO: Implement recurrences, recurrence variables added still need form
+/*TO DO: Fix user input verification
 TO DO: Attendees
 TO DO: Implement google hangouts  */
 
@@ -14,12 +13,14 @@ export default class DoubleButton extends React.Component {
   constructor(props) {
     super(props);
     this.handleItemClick = this.handleItemClick.bind(this);
-    this.state = { isLoggedIn: false };
-    this.state = { frequency: "DAILY" };
-    this.state = { count: 1 };
-    this.state = { interval: 1 };
-    this.state = { timeZone: "America/Los_Angeles" };
-  }
+    this.state = { isLoggedIn: false,
+                  frequency: "DAILY",
+                  count: 1,
+                  interval: 1,
+                  timeZone: "America/Los_Angeles",
+                  meeting: 0
+                  };
+    }
 
   state = {
     startDate: new Date(),
@@ -31,7 +32,9 @@ export default class DoubleButton extends React.Component {
     frequency: "",
     count: "",
     interval: "",
-    timeZone: ""
+    timeZone: "",
+    meetId: "",
+    meeting: ""
   };
 
   handleItemClick(event: SyntheticEvent<any>, name: string): void {
@@ -84,9 +87,14 @@ export default class DoubleButton extends React.Component {
       frequency: "",
       interval: "",
       timeZone: "",
-      count: ""
+      count: "",
+      meetId: "",
+      meeting: ""
     });
-
+    if(this.state.meeting == 1){
+      this.state.meetId = Math.random().toString(36).slice(2);
+      ApiCalendar.changeConference(this.state.meeting);
+    }
     this.state.startTime = new Date(
       this.state.startDate.getFullYear(),
       this.state.startDate.getMonth(),
@@ -121,6 +129,11 @@ export default class DoubleButton extends React.Component {
           "RRULE:FREQ=" + this.state.frequency +
           ";INTERVAL=" + this.state.interval +
           ";COUNT=" + this.state.count ],
+      conferenceData: {
+        createRequest: {
+          requestId: this.state.meetId
+        }
+      }
     };
     
     ApiCalendar.createEvent(event, this.calendar)
@@ -131,7 +144,9 @@ export default class DoubleButton extends React.Component {
         console.log(error);
       });
     
+    
     console.log(event);
+    console.log("meeting: " + this.state.meeting)
   };
 
   render() {
@@ -176,6 +191,7 @@ export default class DoubleButton extends React.Component {
           onClick={(e) => this.handleItemClick(e, "sign-out")}
         />
       );
+      
     }
     return (
       <div align="center">
@@ -251,6 +267,9 @@ export default class DoubleButton extends React.Component {
             {" "} and end after {" "}
             <input required type="number" name="count" min="1" max="100" placeholder="number" value={this.state.count} onChange={this.handleInputChange}/>
             {" "}occurrences
+            <br />
+            <input name="meeting" type="checkbox" value="1" onChange={this.handleInputChange}/>
+            {" "}Add Google Meets video conferencing
             </Paragraph>
             
             
