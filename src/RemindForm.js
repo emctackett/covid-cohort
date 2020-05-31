@@ -6,8 +6,7 @@ import { Button, Paragraph } from "grommet";
 import "react-datepicker/dist/react-datepicker.css";
 
 /*TO DO: Fix user input verification
-TO DO: Attendees
-TO DO: Implement google hangouts  */
+TO DO: Attendees  */
 
 export default class DoubleButton extends React.Component {
   constructor(props) {
@@ -34,7 +33,8 @@ export default class DoubleButton extends React.Component {
     interval: "",
     timeZone: "",
     meetId: "",
-    meeting: ""
+    meeting: "",
+    attendeeList: []
   };
 
   handleItemClick(event: SyntheticEvent<any>, name: string): void {
@@ -73,7 +73,7 @@ export default class DoubleButton extends React.Component {
     this.setState({[inp.target.name]: inp.target.value})
   };
   
-  
+
   onSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
@@ -89,8 +89,20 @@ export default class DoubleButton extends React.Component {
       timeZone: "",
       count: "",
       meetId: "",
-      meeting: ""
+      meeting: "",
+      attendeeList: []
     });
+    if(this.state.attendeeList != undefined){
+      let aList = this.state.attendeeList;
+      aList = aList.split(" ");
+      var list = [];
+      for(var i=0; i < aList.length; i++){
+        var attend = {email: aList[i],
+                      optional: true};
+        list.push(attend);
+      }
+      this.state.attendeeList = list;
+    }
     if(this.state.meeting == 1){
       this.state.meetId = Math.random().toString(36).slice(2);
       ApiCalendar.changeConference(this.state.meeting);
@@ -115,8 +127,8 @@ export default class DoubleButton extends React.Component {
 
 
     const event: object = {
-      summary: "Catch up with friends and family",
-      description: "Ask your friends and family how they are doing or tell them how you are doing. Call or text " + this.state.description,
+      summary: "Catch up w/ friends and family",
+      description: "During these socially distant times, it is very important to stay connected with friends and family. Call, text, or use Google Hangouts to stay in touch.",
       start: {
         dateTime: this.state.startTime,
         timeZone: this.state.timeZone
@@ -133,7 +145,10 @@ export default class DoubleButton extends React.Component {
         createRequest: {
           requestId: this.state.meetId
         }
-      }
+      },
+      attendees: this.state.attendeeList,
+      visibility: "public",
+      guestsCanModify: true
     };
     
     ApiCalendar.createEvent(event, this.calendar)
@@ -146,7 +161,6 @@ export default class DoubleButton extends React.Component {
     
     
     console.log(event);
-    console.log("meeting: " + this.state.meeting)
   };
 
   render() {
@@ -244,10 +258,10 @@ export default class DoubleButton extends React.Component {
           </select>
         </Paragraph>
           <input
-            name="description"
-            placeholder="Who do you want to keep in contact with?"
-            value={this.state.description}
-            onChange={(e) => this.change(e)}
+            name="attendeeList"
+            placeholder="Invite guest by entering their emails here. Seperate emails w/ spaces."
+            value={this.state.attendeeList}
+            onChange={this.handleInputChange}
             style={{ width: "600px", height: "40px" }}
           />
           <br />

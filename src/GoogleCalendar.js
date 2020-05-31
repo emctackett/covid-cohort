@@ -232,10 +232,11 @@ var ApiCalendar = function () {
         key: 'createEvent',
         value: function createEvent(event) {
             var calendarId = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.calendar;
-            console.log("conference: " + this.conference)
+            
             return this.gapi.client.calendar.events.insert({
                 'calendarId': calendarId,
                 'conferenceDataVersion': this.conference,
+                'sendUpdates': 'all',
                 'resource': event
             });
         }
