@@ -13,6 +13,7 @@ const GridLayout = () => {
           <WorldMap color="#8e1600" height="auto" />
         </div>
         <WhatCovid />
+        <br />
         <HowCovid />
         <div>
           <Button
