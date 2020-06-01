@@ -28,10 +28,28 @@
   display: none;
 }
 
+ul.wide-spaced-list > li {
+  margin-top: 1.5em;
+}
+
+ul.arrow-list {
+  position: relative;
+  list-style: none;
+}
+
+ul.arrow-list > li::before {
+  content: '⯈';
+  font-size: 0.7em;
+  position: absolute;
+  left: 0;
+}
+
+input.remind-date-picker {
+  margin: 0.3em;
+}
 button.StyledButton-sc-323bzc-0 {
   vertical-align: -30%;
 }
-
 
 .start-over > Button {
   border-radius: 0;

@@ -19,27 +19,31 @@ const TipsSocialDist = () => {
         margin={{ left: "xlarge", right: "xlarge" }}
         size="medium"
       >
-        • For medicine, consider using a mail-order service. Ask your pharmacist
-        about the available options.
-        <br />
-        <br />
-        • For groceries, consider a delivery service or a curbside pick up.
-        <br />
-        <br />
-        • When you have to go out, cover your nose and mouth with a face cover /
-        mask.
-        <br />
-        <br />
-        • Work from home when possible.
-        <br />
-        <br />
-        • If possible, avoid public transportation and ridesharing
-        <br />
-        <br />
-        • If you are a student, talk to your school about digital / distance
-        learning.
-        <br />
-        <br />• <b>Most importantly, stay connected while staying away.</b>
+        <ul class="wide-spaced-list">
+          <li>
+            For medicine, consider using a mail-order service; ask your pharmacist about the available options
+          </li>
+          <li>
+            For groceries, consider a delivery service or a curbside pick up
+          </li>
+          <li>
+            When you have to go out, cover your nose and mouth with a face cover or mask
+          </li>
+          <li>
+            Work from home when possible
+          </li>
+          <li>
+            If possible, avoid public transportation and ridesharing
+          </li>
+          <li>
+            If you are a student, talk to your school about digital / distance learning
+          </li>
+          <li>
+            <strong>
+              Most importantly, stay connected while staying away
+            </strong>
+          </li>
+        </ul>
       </Paragraph>
     </div>
   );

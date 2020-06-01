@@ -8,11 +8,12 @@ const GridLayout = () => {
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
+        <Heading margin={{ bottom: "large" }}>Stay home, stay safe.</Heading>{" "}
         <div>
           <WorldMap color="#8e1600" height="auto" />
         </div>
-        <Heading>Stay home, stay safe.</Heading>
         <WhatCovid />
+        <br />
         <HowCovid />
         <div>
           <Button

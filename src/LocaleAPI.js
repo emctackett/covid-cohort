@@ -43,10 +43,10 @@ const LocaleAPI = ({ query }) => {
       {isLoaded === true ? (
         <div id="results-wrapper">
           <Heading size="small" color="#8F1701" margin={{ bottom: "small" }}>
-            You are located in {locale}.
+            You are located in {locale}
           </Heading>
           <Paragraph fill={true} size="large" textAlign="center">
-            You can find your state guidelines <a href={link}>here.</a>
+            You can find your state guidelines <a target="_blank" href={link}>here</a>
           </Paragraph>
         </div>
       ) : (

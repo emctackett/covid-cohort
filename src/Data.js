@@ -21,7 +21,7 @@ class StateDataMap extends Component {
 
         displayEl.textContent = `${stateName} has ${formatNumber(
           caseCount
-        )} confirmed cases.`;
+        )} confirmed cases`;
       });
   };
 
@@ -75,8 +75,8 @@ const GridLayout = () => {
   return (
     <div>
       <Box background="light-2" gridArea="info" align="center">
-        <Heading>Stay home, stay safe.</Heading>{" "}
-        <Heading size="h2"> As of {today}, there are... </Heading>
+        <Heading margin={{ bottom: "large" }}>Stay home, stay safe.</Heading>{" "}
+        <Heading size="small" margin={{ bottom: "small" }}> As of {today}, there are</Heading>
         <Heading size="xlarge" color="#8F1701" margin={{ bottom: "small" }}>
           {formatNumber(globalPositives)}
         </Heading>
@@ -93,7 +93,6 @@ const GridLayout = () => {
           Confirmed cases of COVID-19 in the United States
         </Heading>
         <br />
-        <br />
         <Paragraph
           color="#8F1701"
           fill={true}
@@ -102,7 +101,7 @@ const GridLayout = () => {
           textAlign="center"
         >
           <span id="state-data-display">
-            Click on a state to view the current number of cases.
+            Click on a state to view the current number of cases
           </span>
         </Paragraph>
         <StateDataMap />
@@ -124,7 +123,6 @@ const GridLayout = () => {
           >
             The World Health Organization
           </Anchor>
-          .
         </Paragraph>
       </Box>
     </div>

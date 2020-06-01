@@ -174,6 +174,7 @@ export default class DoubleButton extends React.Component {
           selected={this.state.startDate}
           onChange={this.handleChange}
           placeholderText="Date"
+          className="remind-date-picker"
         />
         <br />
         <div display="flex" flex-direction="row">
@@ -186,6 +187,7 @@ export default class DoubleButton extends React.Component {
             timeCaption="Time"
             dateFormat="h:mm aa"
             placeholderText="Click to select start time"
+            className="remind-date-picker"
           />
           <br />
           <DatePicker
@@ -197,7 +199,9 @@ export default class DoubleButton extends React.Component {
             timeCaption="Time"
             dateFormat="h:mm aa"
             placeholderText="Click to select end time"
+            className="remind-date-picker"
           />
+          <br /><br />
         </div>
         <form>
           <input
