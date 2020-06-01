@@ -1,4 +1,6 @@
-# CS361 - COVIDCoach
+# CS361 - COVIDCoach 
+View live at http://covidcoach.herokuapp.com/. 
+
 This is a project built for Oregon State University's CS361 course - Software Engineering I.
 
 There are three primary goals for COVIDCoach:
@@ -95,8 +97,18 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Software Architecture
-![Architecture for COVIDCoach](/public/architecture.jpg)
 
+In designing COVIDCoach, we wanted the application to be simple to use and easily accessible. As such, it made sense to keep the application client-side only using a React single-page application with routing to simulate different pages.
+
+![Architecture for COVIDCoach](/public/architecture.png)
+
+As shown in the above diagram, COVIDCoach is accessible by both mobile devices and desktop browsers by navigating to http://covidcoach.herokuapp.com/. The application is served/hosted on Heroku, a free-tier hosting platform. Heroku applications are "sleepy," so the first visit in an hour may take a bit of loading time to spin up assets and allocate resources for the application. COVIDCoach is reliant on external APIs, acting as a unified interface for different location, calendar, or COVID-tracking APIs. The /safety page calls an API to determine the user's location by zipcode. The /data page uses a COVID-tracking API to provide global and state-by-state data. Lastly, the /reminder page offers the ability to integrate with a user's Google Calendar to set up reminders and Google Hangout meetings with friends and family.
+
+There is no explicit back-end or database that was required to set-up COVIDCoach. Although we had initially planned for a user database, the functionality we were looking for could be captured without limiting access behind user sign-ups and logins. It also distracted from the quality attribute of accessibility that we were aiming for; we want users to be able to easily access COVIDCoach and the information that they are looking for should be readily available.
+
+![Component Diagram for COVIDCoach](/public/component.png)
+
+The component diagram above details the features of COVIDCoach. COVIDCoach can be thought of as a dashboard that unifies these different features. The data visualization component is split up into localization (gathering the user's zipcode to then display their state and the COVID-related guidelines for their particular state) and calling the COVID-tracking API to display state-by-state data. 
 
 ## Design Patterns
 Our team implemented the Facade design pattern, intended to create an interface for working with the Google Calendar API by grouping methods together (thus reducing redundant code). You may view the implementation of the pattern in [RemindForm.js](https://github.com/emctackett/covid-cohort/blob/master/src/RemindForm.js), which is exported as DoubleButton in the [Remind.js](https://github.com/emctackett/covid-cohort/blob/master/src/Remind.js) file.
