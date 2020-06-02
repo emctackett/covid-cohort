@@ -1,20 +1,25 @@
 import React, { ReactNode, SyntheticEvent } from "react";
-import ApiCalendar from "react-google-calendar-api";
+import ApiCalendar from "./GoogleCalendar.js";
 import DatePicker from "react-datepicker";
 import PropTypes from "prop-types";
-import { Button } from "grommet";
+import { Button, Paragraph } from "grommet";
 import "react-datepicker/dist/react-datepicker.css";
 
-/*TO DO: Fix submit button and sign-in button change.
-TO DO: Implement recurrences, recurrence variables added still need form
-TO DO: Implement google hangouts  */
+/*TO DO: Fix user input verification
+TO DO: Attendees  */
 
 export default class DoubleButton extends React.Component {
   constructor(props) {
     super(props);
     this.handleItemClick = this.handleItemClick.bind(this);
-    this.state = { isLoggedIn: false };
-  }
+    this.state = { isLoggedIn: false,
+                  frequency: "DAILY",
+                  count: 1,
+                  interval: 1,
+                  timeZone: "America/Los_Angeles",
+                  meeting: 0
+                  };
+    }
 
   state = {
     startDate: new Date(),
@@ -26,6 +31,10 @@ export default class DoubleButton extends React.Component {
     frequency: "",
     count: "",
     interval: "",
+    timeZone: "",
+    meetId: "",
+    meeting: "",
+    attendeeList: []
   };
 
   handleItemClick(event: SyntheticEvent<any>, name: string): void {
@@ -59,6 +68,12 @@ export default class DoubleButton extends React.Component {
       end: en,
     });
   };
+
+  handleInputChange = (inp) => {
+    this.setState({[inp.target.name]: inp.target.value})
+  };
+  
+
   onSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
@@ -70,10 +85,28 @@ export default class DoubleButton extends React.Component {
       startTime: "",
       endTime: "",
       frequency: "",
-      count: "",
       interval: "",
+      timeZone: "",
+      count: "",
+      meetId: "",
+      meeting: "",
+      attendeeList: []
     });
-
+    if(this.state.attendeeList != undefined){
+      let aList = this.state.attendeeList;
+      aList = aList.split(" ");
+      var list = [];
+      for(var i=0; i < aList.length; i++){
+        var attend = {email: aList[i],
+                      optional: true};
+        list.push(attend);
+      }
+      this.state.attendeeList = list;
+    }
+    if(this.state.meeting == 1){
+      this.state.meetId = Math.random().toString(36).slice(2);
+      ApiCalendar.changeConference(this.state.meeting);
+    }
     this.state.startTime = new Date(
       this.state.startDate.getFullYear(),
       this.state.startDate.getMonth(),
@@ -92,28 +125,32 @@ export default class DoubleButton extends React.Component {
       this.state.end.getSeconds()
     );
 
-    console.log(this.state);
 
     const event: object = {
-      summary: "Call or text " + this.state.description,
-      description:
-        "Ask your friends and family how they are doing or tell them how you are doing. Call or text" +
-        this.state.description,
+      summary: "Catch up w/ friends and family",
+      description: "During these socially distant times, it is very important to stay connected with friends and family. Call, text, or use Google Hangouts to stay in touch.",
       start: {
         dateTime: this.state.startTime,
+        timeZone: this.state.timeZone
       },
       end: {
         dateTime: this.state.endTime,
+        timeZone: this.state.timeZone
       },
-      recurrence:
-        "RRULE:FREQ=" +
-        this.state.frequency +
-        "INTERVAL=" +
-        this.state.interval +
-        "COUNT=" +
-        this.state.count,
+      recurrence: [
+          "RRULE:FREQ=" + this.state.frequency +
+          ";INTERVAL=" + this.state.interval +
+          ";COUNT=" + this.state.count ],
+      conferenceData: {
+        createRequest: {
+          requestId: this.state.meetId
+        }
+      },
+      attendees: this.state.attendeeList,
+      visibility: "public",
+      guestsCanModify: true
     };
-
+    
     ApiCalendar.createEvent(event, this.calendar)
       .then((result: object) => {
         console.log(result);
@@ -121,6 +158,9 @@ export default class DoubleButton extends React.Component {
       .catch((error: any) => {
         console.log(error);
       });
+    
+    
+    console.log(event);
   };
 
   render() {
@@ -165,6 +205,7 @@ export default class DoubleButton extends React.Component {
           onClick={(e) => this.handleItemClick(e, "sign-out")}
         />
       );
+      
     }
     return (
       <div align="center">
@@ -204,14 +245,52 @@ export default class DoubleButton extends React.Component {
           <br /><br />
         </div>
         <form>
+        <Paragraph
+            fill={true}
+            margin={{ left: "xlarge", right: "xlarge" }}
+           size="medium"
+           textAlign="center"
+          >
+            Time Zone:{" "}
+          <select name="timeZone" value={this.state.timeZone} onChange={this.handleInputChange}>
+            <option value="America/Anchorage">Alaska</option>
+            <option selected value="America/Los_Angeles">Pacific</option>
+            <option value="America/Chicago">Central</option>
+            <option value="America/Denver">Mountain</option>
+            <option value="America/New_York">Eastern</option>
+            <option value="Pacific/Honolulu">Hawaii</option>
+          </select>
+        </Paragraph>
           <input
-            name="description"
-            placeholder="Who do you want to keep in contact with?"
-            value={this.state.description}
-            onChange={(e) => this.change(e)}
+            name="attendeeList"
+            placeholder="Invite guest by entering their emails here. Seperate emails w/ spaces."
+            value={this.state.attendeeList}
+            onChange={this.handleInputChange}
             style={{ width: "600px", height: "40px" }}
           />
           <br />
+          <Paragraph
+            fill={true}
+            margin={{ left: "xlarge", right: "xlarge" }}
+           size="medium"
+           textAlign="center"
+          >
+            Repeat every{" "}
+            <input required type="number" name="interval" min="1" max="100" placeholder="number" value={this.state.interval} onChange={this.handleInputChange}/>
+            <select required name="frequency" value={this.state.frequency} onChange={this.handleInputChange}>
+              <option value="" disabled selected>Select</option>
+              <option value="DAILY">Days</option>
+              <option value="WEEKLY">Weeks</option>
+            </select>
+            {" "} and end after {" "}
+            <input required type="number" name="count" min="1" max="100" placeholder="number" value={this.state.count} onChange={this.handleInputChange}/>
+            {" "}occurrences
+            <br />
+            <input name="meeting" type="checkbox" value="1" onChange={this.handleInputChange}/>
+            {" "}Add Google Meets video conferencing
+            </Paragraph>
+            
+            
           {submitButton}
         </form>
       </div>
