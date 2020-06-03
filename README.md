@@ -116,13 +116,18 @@ Our team implemented the Facade design pattern, intended to create an interface 
 
 ## Final State of COVIDCoach
 Here is a list of known issues with COVIDCoach: 
-- [ ] Placeholder
+- [ ] Need for data santiziation on Safety page (zipcode entry)
+- [ ] Proper ability to change answers on quiz (can only start over currently)
 
 Product backlog: 
-- [ ] Placeholder
+No remaining items on the product backlog.
 
 Areas for development: 
 - [ ] Expanding data to be more global and more informative (deaths, recovered, etc.)
+- [ ] Solidifying error handling (Reminders page) 
+- [ ] Change zipcode locator to state-by-state entry
+- [ ] Re-order or restructure page to keep in mind user flow through website
+- [ ] Full mobile device compatability
 
 
 ## File Structure
