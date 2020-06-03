@@ -40,7 +40,7 @@ const GridLayout = () => {
         </Box>
         <Box alignContent="start" width="xlarge" pad={{ left: "large", right: "large" }} alignSelf="center">
           <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-            <ul class="wide-spaced-list arrow-list">
+            <ul class="wide-spaced-list">
               <li>
                 Fever
               </li>
@@ -83,7 +83,7 @@ const GridLayout = () => {
         </Box>
         <Box alignContent="start" width="xlarge" pad={{ left: "large", right: "large" }} alignSelf="center">
         <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-            <ul class="wide-spaced-list arrow-list">
+            <ul class="wide-spaced-list">
               <li>
                 Stay at home if you are sick; leave your home only to seek medical attention, if necessary
               </li>
@@ -134,7 +134,7 @@ const GridLayout = () => {
         </Box>
         <Box alignContent="start" width="xlarge" pad={{ left: "large", right: "large" }} alignSelf="center">
         <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-            <ul class="wide-spaced-list arrow-list">
+            <ul class="wide-spaced-list">
               <li>
                 Trouble breathing
               </li>
