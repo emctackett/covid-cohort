@@ -189,7 +189,7 @@ export default class DoubleButton extends React.Component {
       meeting: "",
       attendeeList: []
     });
-    if(this.state.attendeeList !== undefined && Array.isArray(this.state.attendeeList) && this.state.attendeeList.length > 0){
+    if(this.state.attendeeList !== undefined && this.state.attendeeList.length > 0){
       console.log(this.state.attendeeList);
       let aList = this.state.attendeeList;
       aList = aList.split(" ");
@@ -201,7 +201,7 @@ export default class DoubleButton extends React.Component {
       }
       this.state.attendeeList = list;
     }
-    if(this.state.meeting === 1){
+    if(this.state.meeting == 1){
       this.state.meetId = Math.random().toString(36).slice(2);
       ApiCalendar.changeConference(this.state.meeting);
     }
@@ -236,8 +236,8 @@ export default class DoubleButton extends React.Component {
     if(this.state.count < 1){
       this.setState({count: 1});
     }
-    if(this.state.interval === undefined || Array.isArray(this.state.interval) || this.state.interval.length > 0){
-      this.setState({interval: "Days"});
+    if(this.state.interval === undefined || this.state.interval.length > 0){
+      this.setState({interval: "DAILY"});
     }
     const event: object = {
       summary: "Catch up w/ friends and family",
