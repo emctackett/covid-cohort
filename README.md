@@ -1,5 +1,5 @@
 # CS361 - COVIDCoach 
-View live at http://covidcoach.herokuapp.com/. 
+View live at https://covidcoach.herokuapp.com/. 
 
 This is a project built for Oregon State University's CS361 course - Software Engineering I.
 
