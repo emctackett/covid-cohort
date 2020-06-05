@@ -42,11 +42,15 @@ const GridLayout = () => {
           </Paragraph>
         </Box>
         <Heading size="large" color="#8F1701" level="3" margin={{ bottom: "none" }}>
-          Set Reminders in Your Google Calendar
+          Create Events/Reminders in Your Google Calendar
         </Heading>
-        <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large">
-          You can create reminders in your Google Calendar by signing into your
-          Google account below.
+        <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="large" alignSelf="center">
+          You can create events to remind yourself to catch up with your friends and 
+          <br />family in your Google Calendar by signing into your Google account below. 
+          <br />
+          You can also invite your friends and family to your Google Calendar event 
+          <br />
+          so that they can set aside time to catch up with you.
         </Paragraph>
         <Paragraph fill={true} margin={{ left: "xlarge", right: "xlarge" }} size="medium">
           <strong>
@@ -54,7 +58,7 @@ const GridLayout = () => {
               First sign in to your Google Account by using the Sign-In button. Then,
               fill out the form and
               <br/>
-              press the submit button. Your reminder will automatically be added to
+              press the submit button. Your event will automatically be added to
               your Google Calendar.
             </em>
           </strong>

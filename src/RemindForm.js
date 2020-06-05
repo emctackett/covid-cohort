@@ -8,18 +8,20 @@ import "react-datepicker/dist/react-datepicker.css";
 /*TO DO: Fix user input verification
 TO DO: Attendees  */
 
+
 export default class DoubleButton extends React.Component {
   constructor(props) {
     super(props);
     this.handleItemClick = this.handleItemClick.bind(this);
-    this.state = { isLoggedIn: false,
-                  frequency: "DAILY",
-                  count: 1,
-                  interval: 1,
-                  timeZone: "America/Los_Angeles",
-                  meeting: 0
-                  };
-    }
+    this.state = { 
+      isLoggedIn: false,
+      frequency: "DAILY",
+      count: 1,
+      interval: 1,
+      timeZone: "America/Los_Angeles",
+      meeting: 0
+    };
+  }
 
   state = {
     startDate: new Date(),
@@ -34,7 +36,8 @@ export default class DoubleButton extends React.Component {
     timeZone: "",
     meetId: "",
     meeting: "",
-    attendeeList: []
+    attendeeList: [],
+    sign: false
   };
 
   handleItemClick(event: SyntheticEvent<any>, name: string): void {
@@ -46,6 +49,7 @@ export default class DoubleButton extends React.Component {
       this.setState({ isLoggedIn: false });
     }
   }
+
 
   change = (e) => {
     this.setState({
@@ -72,145 +76,10 @@ export default class DoubleButton extends React.Component {
   handleInputChange = (inp) => {
     this.setState({[inp.target.name]: inp.target.value})
   };
-  
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-    this.setState({
-      startDate: "",
-      start: "",
-      end: "",
-      description: "",
-      startTime: "",
-      endTime: "",
-      frequency: "",
-      interval: "",
-      timeZone: "",
-      count: "",
-      meetId: "",
-      meeting: "",
-      attendeeList: []
-    });
-    if(this.state.attendeeList != undefined){
-      let aList = this.state.attendeeList;
-      aList = aList.split(" ");
-      var list = [];
-      for(var i=0; i < aList.length; i++){
-        var attend = {email: aList[i],
-                      optional: true};
-        list.push(attend);
-      }
-      this.state.attendeeList = list;
-    }
-    if(this.state.meeting == 1){
-      this.state.meetId = Math.random().toString(36).slice(2);
-      ApiCalendar.changeConference(this.state.meeting);
-    }
-    this.state.startTime = new Date(
-      this.state.startDate.getFullYear(),
-      this.state.startDate.getMonth(),
-      this.state.startDate.getDate(),
-      this.state.start.getHours(),
-      this.state.start.getMinutes(),
-      this.state.start.getSeconds()
-    );
-
-    this.state.endTime = new Date(
-      this.state.startDate.getFullYear(),
-      this.state.startDate.getMonth(),
-      this.state.startDate.getDate(),
-      this.state.end.getHours(),
-      this.state.end.getMinutes(),
-      this.state.end.getSeconds()
-    );
-
-
-    const event: object = {
-      summary: "Catch up w/ friends and family",
-      description: "During these socially distant times, it is very important to stay connected with friends and family. Call, text, or use Google Hangouts to stay in touch.",
-      start: {
-        dateTime: this.state.startTime,
-        timeZone: this.state.timeZone
-      },
-      end: {
-        dateTime: this.state.endTime,
-        timeZone: this.state.timeZone
-      },
-      recurrence: [
-          "RRULE:FREQ=" + this.state.frequency +
-          ";INTERVAL=" + this.state.interval +
-          ";COUNT=" + this.state.count ],
-      conferenceData: {
-        createRequest: {
-          requestId: this.state.meetId
-        }
-      },
-      attendees: this.state.attendeeList,
-      visibility: "public",
-      guestsCanModify: true
-    };
-    
-    ApiCalendar.createEvent(event, this.calendar)
-      .then((result: object) => {
-        console.log(result);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-    
-    
-    console.log(event);
-  };
-
-  render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    let submitButton, loginButton;
-    if (!isLoggedIn) {
-      submitButton = (
-        <Button
-          disabled
-          primary
-          color="#8F1701"
-          margin="small"
-          label="Submit"
-          onClick={(e) => this.onSubmit(e)}
-        />
-      );
-      loginButton = (
-        <Button
-          primary
-          margin="small"
-          color="#8F1701"
-          label="Sign In"
-          onClick={(e) => this.handleItemClick(e, "sign-in")}
-        />
-      );
-    } else {
-      submitButton = (
-        <Button
-          margin="small"
-          label="Submit"
-          primary
-          color="#8F1701"
-          onClick={(e) => this.onSubmit(e)}
-        />
-      );
-      loginButton = (
-        <Button
-          margin="small"
-          primary
-          color="#8F1701"
-          label="Sign Out"
-          onClick={(e) => this.handleItemClick(e, "sign-out")}
-        />
-      );
-      
-    }
-    return (
-      <div align="center">
-        {loginButton}
-        <br />
+  googleForm = () => {
+      return (
+        <div>
         <DatePicker
           selected={this.state.startDate}
           onChange={this.handleChange}
@@ -242,7 +111,7 @@ export default class DoubleButton extends React.Component {
             placeholderText="Click to select end time"
             className="remind-date-picker"
           />
-          <br /><br />
+          <br />
         </div>
         <form>
         <Paragraph
@@ -289,10 +158,156 @@ export default class DoubleButton extends React.Component {
             <input name="meeting" type="checkbox" value="1" onChange={this.handleInputChange}/>
             {" "}Add Google Meets video conferencing
             </Paragraph>
-            
-            
-          {submitButton}
+            <Button
+          margin="small"
+          label="Submit"
+          primary
+          color="#8F1701"
+          onClick={(e) => this.onSubmit(e)}
+        />
         </form>
+        </div>
+      );
+  }
+  
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    this.setState({
+      startDate: "",
+      start: "",
+      end: "",
+      description: "",
+      startTime: "",
+      endTime: "",
+      frequency: "",
+      interval: "",
+      timeZone: "",
+      count: "",
+      meetId: "",
+      meeting: "",
+      attendeeList: []
+    });
+    if(this.state.attendeeList !== undefined && this.state.attendeeList.length > 0){
+      console.log(this.state.attendeeList);
+      let aList = this.state.attendeeList;
+      aList = aList.split(" ");
+      var list = [];
+      for(var i=0; i < aList.length; i++){
+        var attend = {email: aList[i],
+                      optional: true};
+        list.push(attend);
+      }
+      this.state.attendeeList = list;
+    }
+    if(this.state.meeting == 1){
+      this.state.meetId = Math.random().toString(36).slice(2);
+      ApiCalendar.changeConference(this.state.meeting);
+    }
+    if(this.state.startDate !== undefined && Object.prototype.toString.call(this.state.startDate) === "[object Date]"){
+      if(this.state.start !== undefined && Object.prototype.toString.call(this.state.start) === "[object Date]"){
+        this.state.startTime = new Date(
+        this.state.startDate.getFullYear(),
+        this.state.startDate.getMonth(),
+        this.state.startDate.getDate(),
+        this.state.start.getHours(),
+        this.state.start.getMinutes(),
+        this.state.start.getSeconds()
+        );
+      };
+      if(this.state.end !== undefined && Object.prototype.toString.call(this.state.end) === "[object Date]"){
+        this.state.endTime = new Date(
+        this.state.startDate.getFullYear(),
+        this.state.startDate.getMonth(),
+        this.state.startDate.getDate(),
+        this.state.end.getHours(),
+        this.state.end.getMinutes(),
+        this.state.end.getSeconds()
+        );
+      };
+    };
+    if(this.state.timeZone === undefined || Array.isArray(this.state.timeZone) || this.state.timeZone.length > 0){
+      this.setState({timeZone:"America/Anchorage"});
+    }
+    if(this.state.frequency < 1){
+      this.setState({frequency: 1});
+    }
+    if(this.state.count < 1){
+      this.setState({count: 1});
+    }
+    if(this.state.interval === undefined || this.state.interval.length > 0){
+      this.setState({interval: "DAILY"});
+    }
+    const event: object = {
+      summary: "Catch up w/ friends and family",
+      description: "During these socially distant times, it is very important to stay connected with friends and family. Call, text, or use Google Hangouts to stay in touch.",
+      start: {
+        dateTime: this.state.startTime,
+        timeZone: this.state.timeZone
+      },
+      end: {
+        dateTime: this.state.endTime,
+        timeZone: this.state.timeZone
+      },
+      recurrence: [
+          "RRULE:FREQ=" + this.state.frequency +
+          ";INTERVAL=" + this.state.interval +
+          ";COUNT=" + this.state.count ],
+      conferenceData: {
+        createRequest: {
+          requestId: this.state.meetId
+        }
+      },
+      attendees: this.state.attendeeList,
+      visibility: "public",
+      guestsCanModify: true
+    };
+    
+    ApiCalendar.createEvent(event, this.calendar)
+      .then((result: object) => {
+        console.log(result);
+      })
+      .catch((error: any) => {
+        console.log(error);
+        alert(error.result.error.message);
+      });
+    
+    
+    console.log(event);
+  };
+
+  render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    let loginButton, googleForm;
+    if (!isLoggedIn) {
+      loginButton = (
+        <Button
+          primary
+          margin="small"
+          color="#8F1701"
+          label="Sign In"
+          onClick={(e) => this.handleItemClick(e, "sign-in")}
+        />
+      );
+      
+    } else {
+      loginButton = (
+        <Button
+          margin="small"
+          primary
+          color="#8F1701"
+          label="Sign Out"
+          onClick={(e) => this.handleItemClick(e, "sign-out")}
+        />
+      );
+      googleForm = this.googleForm();
+    }
+    return (
+      <div align="center">
+        {loginButton}
+        <br />
+        {googleForm}
       </div>
     );
   }

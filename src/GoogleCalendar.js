@@ -37,6 +37,7 @@ var ApiCalendar = function () {
         } catch (e) {
             console.log(e);
         }
+        
     }
     /**
      * Update connection status.
